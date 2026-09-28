@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3R Connect | Especialistas en Polanco</title>
+<meta name="description" content="3R Connect, agencia inmobiliaria especialista en Polanco y Lomas de Chapultepec. Compra, venta y renta de departamentos y casas de lujo en CDMX. 5.0 ★ en Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0a0a0a;
+  --ink:#121212;
+  --card:#171717;
+  --line:rgba(212,175,55,.18);
+  --gold:#d4af37;
+  --gold-2:#f3d88a;
+  --gold-3:#a67c1f;
+  --text:#f3efe6;
+  --muted:#a9a397;
+  --grad:linear-gradient(135deg,#a67c1f 0%,#f3d88a 45%,#d4af37 70%,#a67c1f 100%);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Montserrat',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.container{width:min(1200px,100% - 32px);margin-inline:auto}
+.gold-text{background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.eyebrow{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:.4rem 0 1rem}
+.section{padding:110px 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.section-head p{color:var(--muted)}
+.divider{width:70px;height:1px;background:var(--grad);margin:18px auto 0}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;border-radius:2px;cursor:pointer;border:none;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .4s}
+.btn-gold{background:var(--grad);background-size:200% auto;color:#111}
+.btn-gold:hover{background-position:right center;transform:translateY(-3px);box-shadow:0 14px 40px -10px rgba(212,175,55,.6)}
+.btn-ghost{border:1px solid var(--gold);color:var(--gold);background:transparent}
+.btn-ghost:hover{background:rgba(212,175,55,.1);transform:translateY(-3px)}
+.btn svg{width:18px;height:18px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:22px 0;transition:all .5s var(--ease)}
+nav.scrolled{padding:12px 0;background:rgba(10,10,10,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:.04em}
+.logo small{font-size:.55rem;letter-spacing:.32em;color:var(--muted);margin-top:4px}
+.nav-links{display:flex;gap:34px;list-style:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.nav-links a{position:relative;padding:4px 0;color:#ddd;transition:color .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold);transition:width .4s var(--ease)}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:11px 20px;font-size:.7rem}
+.burger{display:none;background:none;border:none;cursor:pointer;width:30px;height:22px;position:relative}
+.burger span{position:absolute;left:0;width:100%;height:2px;background:var(--gold);transition:.4s var(--ease)}
+.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:10px}.burger span:nth-child(3){top:20px}
+.burger.open span:nth-child(1){top:10px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){top:10px;transform:rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:#1a1408 url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=80') center/cover;animation:kenburns 22s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.14) translate(-1.5%,-1%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,10,10,.95) 0%,rgba(10,10,10,.75) 45%,rgba(10,10,10,.35) 100%),linear-gradient(0deg,var(--black) 0%,transparent 30%)}
+.hero-content{position:relative;z-index:2;max-width:720px;padding-top:80px}
+.hero h1{font-size:clamp(2.9rem,7.5vw,5.8rem);margin:18px 0 22px}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero p{font-size:1.08rem;color:#cfc9bd;max-width:540px;margin-bottom:38px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:16px}
+.rating-pill{display:inline-flex;align-items:center;gap:12px;padding:9px 18px;border:1px solid var(--line);border-radius:40px;background:rgba(255,255,255,.04);backdrop-filter:blur(6px);font-size:.82rem}
+.stars{color:var(--gold);letter-spacing:2px}
+.hero-load>*{opacity:0;transform:translateY(30px);animation:up 1s var(--ease) forwards}
+.hero-load>*:nth-child(1){animation-delay:.2s}.hero-load>*:nth-child(2){animation-delay:.35s}
+.hero-load>*:nth-child(3){animation-delay:.5s}.hero-load>*:nth-child(4){animation-delay:.65s}
+@keyframes up{to{opacity:1;transform:none}}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;width:24px;height:40px;border:1px solid var(--gold);border-radius:14px}
+.scroll-hint::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;background:var(--gold);border-radius:2px;animation:wheel 1.8s infinite}
+@keyframes wheel{0%{opacity:1;transform:none}100%{opacity:0;transform:translateY(14px)}}
+
+/* stats */
+.stats{border-block:1px solid var(--line);background:var(--ink)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:44px 20px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat b{display:block;font-family:var(--serif);font-size:3.1rem;font-weight:600;line-height:1}
+.stat span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* properties */
+.filters{display:flex;justify-content:center;gap:10px;margin-bottom:46px;flex-wrap:wrap}
+.filter{background:none;border:1px solid var(--line);color:var(--muted);padding:10px 24px;font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.35s var(--ease)}
+.filter.active,.filter:hover{border-color:var(--gold);color:#111;background:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.prop{background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s var(--ease),border-color .6s,opacity .5s}
+.prop:hover{transform:translateY(-10px);border-color:rgba(212,175,55,.5);box-shadow:0 30px 60px -25px rgba(212,175,55,.35)}
+.prop.hide{display:none}
+.prop-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,#2a2112,#0f0d08)}
+.prop-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.prop:hover .prop-img img{transform:scale(1.1)}
+.tag{position:absolute;top:16px;left:16px;padding:6px 14px;font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;background:var(--grad);color:#111}
+.tag.renta{background:#0a0a0a;color:var(--gold);border:1px solid var(--gold)}
+.prop-body{padding:26px}
+.prop-loc{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.prop h3{font-size:1.6rem;margin:6px 0 14px}
+.specs{display:flex;gap:18px;font-size:.8rem;color:var(--muted);padding-bottom:18px;border-bottom:1px solid var(--line)}
+.prop-foot{display:flex;justify-content:space-between;align-items:center;padding-top:18px}
+.price{font-family:var(--serif);font-size:1.7rem;font-weight:600}
+.price small{font-family:var(--sans);font-size:.7rem;color:var(--muted);font-weight:400}
+.prop-foot a{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:6px}
+.prop-foot a:hover{gap:12px}
+.prop-foot a{transition:gap .3s var(--ease)}
+.note{text-align:center;color:var(--muted);font-size:.78rem;margin-top:34px}
+
+/* services */
+.services{background:var(--ink)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--ink);padding:46px 36px;position:relative;overflow:hidden;transition:background .5s}
+.svc::before{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.svc:hover{background:#1a1a1a}
+.svc:hover::before{transform:scaleX(1)}
+.svc-icon{width:54px;height:54px;border:1px solid var(--gold);display:grid;place-items:center;margin-bottom:24px;transition:transform .6s var(--ease)}
+.svc:hover .svc-icon{transform:rotate(45deg)}
+.svc-icon svg{width:24px;height:24px;stroke:var(--gold);transition:transform .6s var(--ease)}
+.svc:hover .svc-icon svg{transform:rotate(-45deg)}
+.svc h3{font-size:1.55rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.92rem}
+
+/* expats split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.split-img{position:relative}
+.split-img .frame{aspect-ratio:4/5;overflow:hidden;background:linear-gradient(135deg,#2a2112,#0f0d08)}
+.split-img img{width:100%;height:100%;object-fit:cover}
+.split-img::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);z-index:-1}
+.badge{position:absolute;right:-24px;bottom:40px;background:var(--grad);color:#111;padding:22px 26px;text-align:center;box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.badge b{display:block;font-family:var(--serif);font-size:2.6rem;line-height:1}
+.badge span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.checks{list-style:none;margin:28px 0 36px}
+.checks li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);color:#d8d2c6}
+.checks li::before{content:"◆";color:var(--gold);font-size:.7rem;margin-top:5px}
+
+/* testimonials */
+.testi{background:var(--ink);text-align:center}
+.slider{position:relative;max-width:820px;margin:0 auto;min-height:260px}
+.quote{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease);pointer-events:none}
+.quote.active{opacity:1;transform:none;pointer-events:auto;position:relative}
+.quote-mark{font-family:var(--serif);font-size:6rem;line-height:.6;color:var(--gold);opacity:.6}
+.quote p{font-family:var(--serif);font-size:clamp(1.35rem,3vw,1.9rem);font-style:italic;font-weight:500;margin:10px 0 26px}
+.quote cite{font-style:normal;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.dots{display:flex;justify-content:center;gap:10px;margin-top:34px}
+.dots button{width:34px;height:2px;border:none;background:#444;cursor:pointer;transition:background .4s}
+.dots button.active{background:var(--gold)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px}
+.info-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.info-item svg{width:22px;height:22px;stroke:var(--gold);flex-shrink:0;margin-top:3px}
+.info-item h4{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+.info-item p,.info-item a{color:#ddd;font-size:.95rem}
+.info-item a:hover{color:var(--gold)}
+form{background:var(--card);border:1px solid var(--line);padding:40px}
+form h3{font-size:1.9rem;margin-bottom:24px}
+.field{position:relative;margin-bottom:22px}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:none;border-bottom:1px solid #3a3a3a;color:var(--text);padding:12px 0;font-family:var(--sans);font-size:.95rem;outline:none;transition:border-color .4s}
+.field select option{background:#171717}
+.field textarea{resize:vertical;min-height:80px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.field label{position:absolute;left:0;top:12px;color:var(--muted);font-size:.9rem;pointer-events:none;transition:.3s var(--ease)}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label{top:-10px;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+form .btn{width:100%;justify-content:center;margin-top:8px}
+.map{margin-top:28px;border:1px solid var(--line);filter:grayscale(1) invert(.92) contrast(.9);height:230px;overflow:hidden}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{border-top:1px solid var(--line);padding:50px 0 34px;text-align:center}
+footer .logo{align-items:center;margin-bottom:18px}
+footer p{color:var(--muted);font-size:.78rem}
+
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .4s var(--ease)}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;animation:pulse 2.2s infinite;z-index:-1}
+@keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.12s}.reveal.d2{transition-delay:.24s}.reveal.d3{transition-delay:.36s}
+
+@media (max-width:980px){
+  .grid,.svc-grid{grid-template-columns:repeat(2,1fr)}
+  .split,.contact-grid{grid-template-columns:1fr}
+  .split-img{max-width:480px;margin:0 auto 20px}
+  .badge{right:0}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:760px){
+  .nav-links{position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:34px;background:rgba(10,10,10,.97);font-size:1rem;transform:translateX(100%);transition:transform .6s var(--ease)}
+  .nav-links.open{transform:none}
+  .burger{display:block;z-index:51}
+  .nav-cta{display:none}
+  .grid,.svc-grid{grid-template-columns:1fr}
+  .section{padding:80px 0}
+  .stat b{font-size:2.4rem}
+  form{padding:28px 22px}
+  .split-img::before{inset:-10px 10px 10px -10px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.hero-load>*{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#inicio" class="logo"><b class="gold-text">3R CONNECT</b><small>ESPECIALISTAS EN POLANCO</small></a>
+    <ul class="nav-links" id="menu">
+      <li><a href="#propiedades">Propiedades</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#expats">Expats</a></li>
+      <li><a href="#opiniones">Opiniones</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/525535025475?text=Hola%203R%20Connect%2C%20me%20interesa%20una%20propiedad" target="_blank" rel="noopener" class="btn btn-gold nav-cta">Agenda tu cita</a>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content hero-load">
+      <span class="rating-pill"><span class="stars">★★★★★</span> 5.0 en Google · 215 reseñas</span>
+      <h1>Tu próximo hogar en <em class="gold-text">Polanco</em></h1>
+      <p>Brokers especialistas en Polanco y Lomas de Chapultepec. Te acompañamos en cada paso para comprar, vender o rentar el inmueble ideal, con recorridos organizados y atención personalizada.</p>
+      <div class="hero-actions">
+        <a href="#propiedades" class="btn btn-gold">Ver propiedades</a>
+        <a href="https://wa.me/525535025475?text=Hola%203R%20Connect%2C%20quiero%20agendar%20un%20recorrido" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg>
+          Agendar recorrido
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"></div>
+</header>
+
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal"><b class="gold-text" data-count="5.0" data-dec="1">0</b><span>Calificación Google</span></div>
+    <div class="stat reveal d1"><b class="gold-text" data-count="215">0</b><span>Reseñas 5 estrellas</span></div>
+    <div class="stat reveal d2"><b class="gold-text" data-count="100" data-suffix="%">0</b><span>Atención personalizada</span></div>
+    <div class="stat reveal d3"><b class="gold-text">EN/ES</b><span>Atención bilingüe</span></div>
+  </div>
+</section>
+
+<section class="section" id="propiedades">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Portafolio exclusivo</span>
+      <h2>Propiedades <span class="gold-text">destacadas</span></h2>
+      <p>Una selección de departamentos y residencias en las zonas más exclusivas de la Ciudad de México.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="filters reveal">
+      <button class="filter active" data-f="all">Todas</button>
+      <button class="filter" data-f="venta">Venta</button>
+      <button class="filter" data-f="renta">Renta</button>
+    </div>
+    <div class="grid">
+      <article class="prop reveal" data-type="venta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=75" alt="Residencia contemporánea" loading="lazy" onerror="this.remove()"><span class="tag">Venta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Lomas de Chapultepec</span>
+          <h3>Residencia contemporánea</h3>
+          <div class="specs"><span>4 Rec</span><span>5 Baños</span><span>620 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$38,500,000 <small>MXN</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+      <article class="prop reveal d1" data-type="renta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=75" alt="Departamento amueblado" loading="lazy" onerror="this.remove()"><span class="tag renta">Renta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Polanco V Sección</span>
+          <h3>Departamento amueblado</h3>
+          <div class="specs"><span>2 Rec</span><span>2 Baños</span><span>140 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$55,000 <small>/mes</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+      <article class="prop reveal d2" data-type="venta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=75" alt="Penthouse con terraza" loading="lazy" onerror="this.remove()"><span class="tag">Venta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Polanco</span>
+          <h3>Penthouse con terraza</h3>
+          <div class="specs"><span>3 Rec</span><span>3.5 Baños</span><span>310 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$24,900,000 <small>MXN</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+      <article class="prop reveal" data-type="renta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=75" alt="Loft ejecutivo" loading="lazy" onerror="this.remove()"><span class="tag renta">Renta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Polanco III Sección</span>
+          <h3>Loft ejecutivo</h3>
+          <div class="specs"><span>1 Rec</span><span>1.5 Baños</span><span>85 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$34,000 <small>/mes</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+      <article class="prop reveal d1" data-type="venta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=75" alt="Departamento de lujo" loading="lazy" onerror="this.remove()"><span class="tag">Venta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Polanco I Sección</span>
+          <h3>Departamento de lujo</h3>
+          <div class="specs"><span>3 Rec</span><span>3 Baños</span><span>210 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$15,800,000 <small>MXN</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+      <article class="prop reveal d2" data-type="renta">
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=75" alt="Departamento familiar" loading="lazy" onerror="this.remove()"><span class="tag renta">Renta</span></div>
+        <div class="prop-body">
+          <span class="prop-loc">Lomas Virreyes</span>
+          <h3>Departamento familiar</h3>
+          <div class="specs"><span>3 Rec</span><span>3 Baños</span><span>240 m²</span></div>
+          <div class="prop-foot"><span class="price gold-text">$78,000 <small>/mes</small></span><a href="#contacto">Info →</a></div>
+        </div>
+      </article>
+    </div>
+    <p class="note reveal">Precios de referencia. Consulta disponibilidad y el inventario completo con nuestros brokers.</p>
+  </div>
+</section>
+
+<section class="section services" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Lo que hacemos</span>
+      <h2>Servicios <span class="gold-text">integrales</span></h2>
+      <p>Desde la primera llamada hasta la firma, nos encargamos de todo para que tú solo elijas.</p>
+      <div class="divider"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg></div><h3>Compra</h3><p>Encontramos opciones que se adaptan a tus necesidades, presupuesto y estilo de vida.</p></div>
+      <div class="svc reveal d1"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M20 12V7l-8-4-8 4v5"/><path d="M4 12v5l8 4 8-4v-5"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Venta</h3><p>Valuamos, promovemos y vendemos tu inmueble al mejor precio con total transparencia.</p></div>
+      <div class="svc reveal d2"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg></div><h3>Renta</h3><p>Departamentos amueblados y sin amueblar, con contratos claros y procesos ágiles.</p></div>
+      <div class="svc reveal"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Relocation</h3><p>Apoyo especializado para expatriados que buscan mudarse a Polanco y Lomas.</p></div>
+      <div class="svc reveal d1"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Recorridos</h3><p>Recorridos organizados y citas programadas de forma eficiente para aprovechar tu tiempo.</p></div>
+      <div class="svc reveal d2"><div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Asesoría</h3><p>Acompañamiento en negociación, documentación y cierre para una operación segura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="expats">
+  <div class="container split">
+    <div class="split-img reveal">
+      <div class="frame"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1000&q=75" alt="Interior de residencia de lujo" loading="lazy" onerror="this.remove()"></div>
+      <div class="badge"><b>5.0</b><span>★ Google</span></div>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Welcome to Mexico City</span>
+      <h2>Expertos en <span class="gold-text">expatriados</span></h2>
+      <p style="color:var(--muted)">Nuestros clientes nos recomiendan como la mejor opción para extranjeros que buscan mudarse a la zona. Hablamos tu idioma y conocemos cada calle de Polanco.</p>
+      <ul class="checks">
+        <li>Atención bilingüe español / inglés</li>
+        <li>Recorridos organizados por zona según tus prioridades</li>
+        <li>Programación de citas rápida y eficiente</li>
+        <li>Acompañamiento hasta la entrega de llaves</li>
+      </ul>
+      <a href="https://wa.me/525535025475?text=Hi%203R%20Connect%2C%20I%27m%20relocating%20to%20Mexico%20City" target="_blank" rel="noopener" class="btn btn-gold">Hablemos · Let's talk</a>
+    </div>
+  </div>
+</section>
+
+<section class="section testi" id="opiniones">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">★★★★★ 5.0 · 215 reseñas</span>
+      <h2>Lo que dicen <span class="gold-text">nuestros clientes</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="slider reveal" id="slider">
+      <div class="quote active"><div class="quote-mark">“</div><p>Si estás buscando un inmueble en Polanco los brokers de 3R son la mejor opción, desde el primer contacto te brindan una excelente atención, siempre están atentos a tus requerimientos.</p><cite>Eduardo Villarreal</cite></div>
+      <div class="quote"><div class="quote-mark">“</div><p>Excelente atención y servicio, son un equipo extremadamente profesional. Lo recomiendo para cualquiera que esté buscando un inmueble.</p><cite>Jackie Marcuschamer</cite></div>
+      <div class="quote"><div class="quote-mark">“</div><p>Te dan muchas opciones que se acoplan a tus necesidades.</p><cite>Reseña en Google</cite></div>
+      <div class="quote"><div class="quote-mark">“</div><p>La atención fue muy amable y eficiente.</p><cite>Reseña en Google</cite></div>
+    </div>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contacto</span>
+      <h2>Encontremos tu <span class="gold-text">espacio ideal</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Oficina</h4><p>C. Montes Urales 424, Lomas – Virreyes, Lomas de Chapultepec, Miguel Hidalgo, 11000 CDMX<br><small style="color:var(--muted)">Dentro de WeWork</small></p></div></div>
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg><div><h4>Teléfono / WhatsApp</h4><a href="tel:+525535025475">+52 55 3502 5475</a></div></div>
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h4>Horario</h4><p>Lunes a viernes · hasta las 7:00 p.m.</p></div></div>
+        <div class="info-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><div><h4>Inventario en línea</h4><a href="https://www.easybroker.com" target="_blank" rel="noopener">easybroker.com</a></div></div>
+        <div class="map"><iframe src="https://maps.google.com/maps?q=Montes%20Urales%20424%2C%20Lomas%20de%20Chapultepec%2C%20CDMX&z=15&output=embed" loading="lazy" title="Ubicación 3R Connect"></iframe></div>
+      </div>
+      <form class="reveal d1" id="form">
+        <h3>Agenda una <span class="gold-text">cita</span></h3>
+        <div class="field"><input id="n" placeholder=" " required><label for="n">Nombre</label></div>
+        <div class="field"><input id="t" type="tel" placeholder=" " required><label for="t">Teléfono</label></div>
+        <div class="field"><select id="i"><option>Quiero comprar</option><option>Quiero rentar</option><option>Quiero vender mi inmueble</option><option>Soy expat / relocation</option></select></div>
+        <div class="field"><textarea id="m" placeholder=" "></textarea><label for="m">¿Qué estás buscando?</label></div>
+        <button class="btn btn-gold" type="submit">Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo"><b class="gold-text">3R CONNECT</b><small>ESPECIALISTAS EN POLANCO</small></div>
+    <p>© <span id="y"></span> 3R Connect · Agencia inmobiliaria · Lomas de Chapultepec, CDMX</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/525535025475?text=Hola%203R%20Connect" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.onclick=()=>{burger.classList.toggle('open');menu.classList.toggle('open')};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open');menu.classList.remove('open')});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function countUp(el){
+  const end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suffix||'',t0=performance.now(),dur=1800;
+  (function tick(t){
+    const p=Math.min((t-t0)/dur,1),v=end*(1-Math.pow(1-p,4));
+    el.textContent=v.toFixed(dec)+suf;
+    if(p<1)requestAnimationFrame(tick);
+  })(t0);
+}
+
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('.prop').forEach(p=>{
+    p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.type!==b.dataset.f);
+    p.classList.add('in');
+  });
+});
+
+const quotes=[...document.querySelectorAll('.quote')],dots=document.getElementById('dots');let qi=0,timer;
+quotes.forEach((_,i)=>{const d=document.createElement('button');d.setAttribute('aria-label','Opinión '+(i+1));d.onclick=()=>{show(i);restart()};dots.appendChild(d)});
+function show(i){quotes[qi].classList.remove('active');dots.children[qi].classList.remove('active');qi=i;quotes[qi].classList.add('active');dots.children[qi].classList.add('active')}
+function restart(){clearInterval(timer);timer=setInterval(()=>show((qi+1)%quotes.length),5500)}
+show(0);restart();
+
+document.getElementById('form').onsubmit=e=>{
+  e.preventDefault();
+  const v=id=>document.getElementById(id).value.trim();
+  const msg=`Hola 3R Connect, soy ${v('n')} (${v('t')}). ${v('i')}. ${v('m')}`;
+  window.open('https://wa.me/525535025475?text='+encodeURIComponent(msg),'_blank','noopener');
+};
+document.getElementById('y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
