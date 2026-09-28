@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDV Real Estate | Inmobiliaria en Naucalpan</title>
+<meta name="description" content="CDV Real Estate, inmobiliaria en Jardines de San Mateo, Naucalpan. Compra, venta y renta de departamentos y casas. Te asesoramos con tu crédito Infonavit, Fovissste o bancario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --y:#f5d313;
+  --y2:#ffe45c;
+  --yd:#d9b800;
+  --ink:#161616;
+  --ink2:#242424;
+  --paper:#fffdf5;
+  --cream:#fff8d6;
+  --muted:#6b6658;
+  --line:rgba(22,22,22,.1);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --r:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.container{width:min(1200px,100% - 32px);margin-inline:auto}
+h1,h2,h3{line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800}
+.hl{position:relative;z-index:0;white-space:nowrap}
+.hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.08em;height:.38em;background:var(--y);z-index:-1;border-radius:4px;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .3s}
+.in .hl::after,.hero .hl::after{transform:scaleX(1)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:40px;background:var(--ink);color:var(--y);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.section{padding:110px 0}
+.head{max-width:640px;margin-bottom:56px}
+.head p{color:var(--muted);font-size:1.08rem;margin-top:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:60px;font-family:inherit;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:transform .45s var(--spring),box-shadow .45s var(--ease),background .3s}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
+.btn:active{transform:scale(.97)}
+.btn-y{background:var(--y);color:var(--ink);box-shadow:0 10px 0 -2px var(--yd)}
+.btn-y:hover{box-shadow:0 14px 30px -6px rgba(217,184,0,.6)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{box-shadow:0 14px 30px -8px rgba(0,0,0,.45)}
+.btn svg{width:20px;height:20px}
+
+/* nav */
+nav{position:fixed;top:14px;left:0;right:0;z-index:50;transition:top .4s var(--ease)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 22px;border-radius:60px;background:rgba(255,253,245,.7);backdrop-filter:blur(14px);border:1px solid var(--line);transition:box-shadow .4s}
+nav.scrolled .nav-inner{box-shadow:0 12px 40px -18px rgba(0,0,0,.35)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.35rem;letter-spacing:-.03em}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:var(--y);display:grid;place-items:center;font-size:.95rem;font-weight:900;transition:transform .6s var(--spring)}
+.logo:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}
+.logo small{display:block;font-size:.62rem;font-weight:500;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-top:-3px}
+.links{display:flex;gap:6px;list-style:none}
+.links a{padding:10px 16px;border-radius:40px;font-weight:500;font-size:.95rem;transition:background .3s}
+.links a:hover{background:var(--cream)}
+.nav-cta{padding:12px 22px;font-size:.92rem;box-shadow:none}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:none;background:var(--ink);cursor:pointer;position:relative}
+.burger span{position:absolute;left:14px;width:18px;height:2px;background:var(--y);transition:.4s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:26px}
+.burger.open span:nth-child(1){top:22px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:22px;transform:rotate(-45deg)}
+
+/* hero */
+.hero{position:relative;padding:150px 0 90px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;background:var(--y);filter:blur(0);z-index:-1}
+.b1{width:560px;height:560px;right:-160px;top:-120px;animation:float 12s ease-in-out infinite}
+.b2{width:180px;height:180px;left:-60px;bottom:40px;background:var(--y2);animation:float 9s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(-30px,30px) scale(1.06)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem);font-weight:900;margin:22px 0 22px}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.rating{display:flex;align-items:center;gap:12px;margin-top:34px}
+.rating .stars{color:#f5b301;font-size:1.2rem;letter-spacing:2px}
+.rating b{font-size:1.5rem}
+.rating span{color:var(--muted);font-size:.92rem}
+.hero-visual{position:relative;height:540px}
+.hv-main{position:absolute;inset:0 0 0 40px;border-radius:32px;overflow:hidden;background:linear-gradient(135deg,#2a2a2a,#111);box-shadow:0 40px 80px -30px rgba(0,0,0,.45)}
+.hv-main img{width:100%;height:100%;object-fit:cover;transform:scale(1.15);animation:zoom 1.6s var(--ease) forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.float-card{position:absolute;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 20px 50px -18px rgba(0,0,0,.35);display:flex;align-items:center;gap:14px;animation:bob 5s ease-in-out infinite}
+.float-card .ic{width:44px;height:44px;border-radius:12px;background:var(--y);display:grid;place-items:center;font-size:1.3rem}
+.float-card b{display:block;font-size:1.05rem}
+.float-card small{color:var(--muted);font-size:.8rem}
+.fc1{left:0;bottom:70px}
+.fc2{right:-14px;top:40px;animation-delay:-2.5s}
+@keyframes bob{50%{transform:translateY(-14px)}}
+.pop{opacity:0;transform:translateY(40px) scale(.96);animation:popin .9s var(--spring) forwards}
+@keyframes popin{to{opacity:1;transform:none}}
+
+/* marquee */
+.marquee-wrap{overflow:hidden;padding:24px 0}
+.marquee{background:var(--ink);color:var(--y);padding:22px 0;overflow:hidden;transform:rotate(-1.5deg);margin:0 -20px}
+.track{display:flex;gap:48px;width:max-content;animation:scroll 28s linear infinite;font-size:1.5rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.track span{display:flex;align-items:center;gap:48px}
+.track span::after{content:"✦";color:#fff}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* props */
+.bar{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+.bar .head{margin-bottom:0}
+.filters{display:flex;gap:8px;background:#fff;border:1px solid var(--line);padding:6px;border-radius:60px}
+.filter{border:none;background:none;padding:11px 22px;border-radius:40px;font-family:inherit;font-weight:600;font-size:.95rem;cursor:pointer;color:var(--muted);transition:.35s var(--ease)}
+.filter.active{background:var(--ink);color:var(--y)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);transition:transform .6s var(--spring),box-shadow .6s var(--ease)}
+.card:hover{transform:translateY(-10px) rotate(-.6deg);box-shadow:0 30px 60px -28px rgba(0,0,0,.4)}
+.card.hide{display:none}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,var(--y),var(--y2))}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.card:hover .card-img img{transform:scale(1.08)}
+.badge{position:absolute;top:14px;left:14px;padding:7px 14px;border-radius:30px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--y);color:var(--ink)}
+.badge.renta{background:var(--ink);color:var(--y)}
+.fav{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:grid;place-items:center;font-size:1.1rem;transition:transform .4s var(--spring)}
+.fav:hover{transform:scale(1.15)}
+.fav.on{background:var(--y)}
+.card-body{padding:22px 24px 24px}
+.loc{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.card h3{font-size:1.35rem;font-weight:700;margin:6px 0 14px}
+.specs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.specs span{background:var(--cream);padding:6px 12px;border-radius:30px;font-size:.82rem;font-weight:500}
+.card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px dashed var(--line)}
+.price{font-size:1.5rem;font-weight:800}
+.price small{font-size:.8rem;font-weight:500;color:var(--muted)}
+.go{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--y);display:grid;place-items:center;font-size:1.2rem;transition:transform .45s var(--spring),background .3s}
+.card:hover .go{transform:rotate(-45deg);background:var(--y);color:var(--ink)}
+.note{color:var(--muted);font-size:.85rem;margin-top:26px}
+
+/* services */
+.svc-wrap{background:var(--ink);color:#fff;border-radius:40px;padding:90px 0;margin:0 16px}
+.svc-wrap .head p{color:#b9b4a6}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc{background:var(--ink2);border-radius:var(--r);padding:32px 26px;border:1px solid rgba(255,255,255,.06);transition:transform .5s var(--spring),background .4s,color .4s}
+.svc:hover{transform:translateY(-8px);background:var(--y);color:var(--ink)}
+.svc .n{font-size:.85rem;font-weight:700;color:var(--y);transition:color .4s}
+.svc:hover .n{color:var(--ink)}
+.svc .emoji{font-size:2.4rem;margin:18px 0 16px;display:inline-block;transition:transform .6s var(--spring)}
+.svc:hover .emoji{transform:scale(1.2) rotate(-10deg)}
+.svc h3{font-size:1.3rem;margin-bottom:8px}
+.svc p{font-size:.95rem;opacity:.75}
+
+/* credit calc */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.calc-box{background:#fff;border:1px solid var(--line);border-radius:30px;padding:38px;box-shadow:0 30px 60px -35px rgba(0,0,0,.35)}
+.row{margin-bottom:26px}
+.row label{display:flex;justify-content:space-between;font-weight:600;margin-bottom:12px}
+.row label output{background:var(--cream);padding:3px 12px;border-radius:20px;font-weight:700}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:10px;background:linear-gradient(90deg,var(--y) var(--p,50%),#eee var(--p,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--ink);border:4px solid var(--y);cursor:pointer;transition:transform .3s var(--spring)}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--ink);border:4px solid var(--y);cursor:pointer}
+.result{background:var(--y);border-radius:22px;padding:24px;text-align:center;margin-top:8px}
+.result small{font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.75rem}
+.result b{display:block;font-size:2.6rem;font-weight:900;line-height:1.1}
+.fine{font-size:.78rem;color:var(--muted);margin-top:14px;text-align:center}
+.credits{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 32px}
+.credits span{padding:10px 18px;border:2px solid var(--ink);border-radius:40px;font-weight:700}
+
+/* why + faq */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.why-item{padding:30px;border-radius:var(--r);background:var(--cream);position:relative;overflow:hidden}
+.why-item b{font-size:3rem;font-weight:900;line-height:1}
+.why-item p{margin-top:8px;color:var(--muted)}
+.faq{max-width:820px;margin:0 auto}
+.q{border-bottom:1px solid var(--line)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;background:none;border:none;font-family:inherit;font-size:1.15rem;font-weight:600;text-align:left;cursor:pointer;color:var(--ink)}
+.q .plus{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--y);display:grid;place-items:center;font-size:1.3rem;transition:transform .5s var(--spring)}
+.q.open .plus{transform:rotate(135deg);background:var(--ink);color:var(--y)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{padding-bottom:22px;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--y);border-radius:40px;margin:0 16px;padding:90px 0;position:relative;overflow:hidden}
+.contact::before{content:"CDV";position:absolute;right:-30px;bottom:-80px;font-size:22rem;font-weight:900;color:rgba(0,0,0,.05);line-height:1;pointer-events:none}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;position:relative}
+.info{display:grid;gap:14px;margin-top:30px}
+.info-row{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.55);padding:18px 20px;border-radius:18px;transition:transform .4s var(--spring),background .3s}
+.info-row:hover{transform:translateX(6px);background:#fff}
+.info-row .ic{font-size:1.4rem}
+.info-row h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.hours{display:grid;grid-template-columns:auto auto;gap:2px 18px;font-size:.92rem}
+.hours .today{font-weight:800}
+.form{background:#fff;border-radius:30px;padding:36px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.form h3{font-size:1.8rem;font-weight:800;margin-bottom:22px}
+.form input,.form select,.form textarea{width:100%;padding:16px 18px;border:2px solid #eee;border-radius:14px;font-family:inherit;font-size:1rem;margin-bottom:14px;background:#fafafa;outline:none;transition:border-color .3s,background .3s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--ink);background:#fff}
+.form textarea{min-height:90px;resize:vertical}
+.form .btn{width:100%;justify-content:center}
+.map{margin-top:14px;border-radius:18px;overflow:hidden;height:200px}
+.map iframe{width:100%;height:100%;border:0}
+
+footer{padding:50px 0 40px;text-align:center;color:var(--muted);font-size:.9rem}
+footer .logo{justify-content:center;margin-bottom:14px;color:var(--ink)}
+.social{display:flex;justify-content:center;gap:10px;margin:18px 0}
+.social a{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--y);display:grid;place-items:center;transition:transform .4s var(--spring)}
+.social a:hover{transform:translateY(-4px) rotate(8deg)}
+.social svg{width:20px;height:20px;fill:currentColor}
+
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:10px;padding:14px 20px 14px 16px;border-radius:60px;background:#25d366;color:#fff;font-weight:700;box-shadow:0 14px 30px -8px rgba(37,211,102,.6);transition:transform .45s var(--spring)}
+.wa:hover{transform:scale(1.06)}
+.wa svg{width:26px;height:26px;fill:#fff}
+.wa::before{content:"";position:absolute;inset:0;border-radius:60px;border:2px solid #25d366;animation:ring 2s infinite}
+@keyframes ring{to{transform:scale(1.25);opacity:0}}
+
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media (max-width:1000px){
+  .hero-grid,.calc,.contact-grid{grid-template-columns:1fr}
+  .hero-visual{height:420px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .links{position:fixed;inset:0;flex-direction:column;align-items:center;justify-content:center;background:var(--y);font-size:1.4rem;clip-path:circle(0 at calc(100% - 40px) 40px);transition:clip-path .7s var(--ease)}
+  .links.open{clip-path:circle(150% at calc(100% - 40px) 40px)}
+  .links a{font-weight:700}
+  .burger{display:block;z-index:51}
+  .nav-cta{display:none}
+  .grid,.svc-grid,.why{grid-template-columns:1fr}
+  .hero{padding-top:130px}
+  .hero-visual{height:340px}
+  .hv-main{inset:0}
+  .fc2{right:8px}
+  .fc1{left:8px;bottom:20px}
+  .section{padding:80px 0}
+  .svc-wrap,.contact{border-radius:28px;margin:0 8px;padding:70px 0}
+  .calc-box,.form{padding:26px 20px}
+  .contact::before{font-size:12rem}
+  .wa span{display:none}
+  .wa{padding:16px}
+  .b1{width:360px;height:360px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal,.pop{opacity:1;transform:none}
+  .hl::after{transform:scaleX(1)}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#inicio" class="logo"><span class="logo-mark">CDV</span><div>CDV<small>Real Estate</small></div></a>
+    <ul class="links" id="menu">
+      <li><a href="#propiedades">Propiedades</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#credito">Crédito</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="tel:+525513709455" class="btn btn-y nav-cta">📞 55 1370 9455</a>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="chip pop" style="animation-delay:.1s">📍 Naucalpan · CDMX</span>
+      <h1 class="pop" style="animation-delay:.2s">Tu casa, <span class="hl">super</span> bien ubicada.</h1>
+      <p class="pop" style="animation-delay:.3s">Departamentos y casas cerca de escuelas, hospitales y vías rápidas. Te acompañamos desde la primera visita y <b>te asesoramos con tu crédito</b>.</p>
+      <div class="hero-actions pop" style="animation-delay:.4s">
+        <a href="#propiedades" class="btn btn-y">Ver propiedades →</a>
+        <a href="#credito" class="btn btn-dark">Calcula tu crédito</a>
+      </div>
+      <div class="rating pop" style="animation-delay:.5s"><b>4.6</b><span class="stars">★★★★★</span><span>en Google · 240+ seguidores en Facebook</span></div>
+    </div>
+    <div class="hero-visual">
+      <div class="hv-main pop" style="animation-delay:.15s"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1100&q=75" alt="Departamento luminoso" onerror="this.remove()"></div>
+      <div class="float-card fc1 pop" style="animation-delay:.7s"><span class="ic">🏦</span><div><b>Infonavit · Fovissste</b><small>Te ayudamos con tu crédito</small></div></div>
+      <div class="float-card fc2 pop" style="animation-delay:.85s"><span class="ic">🔑</span><div><b>Visita hoy</b><small>Lun a Sáb</small></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap"><div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Compra</span><span>Venta</span><span>Renta</span><span>Crédito Infonavit</span><span>Fovissste</span><span>Crédito bancario</span><span>Avalúos</span><span>Asesoría legal</span>
+    <span>Compra</span><span>Venta</span><span>Renta</span><span>Crédito Infonavit</span><span>Fovissste</span><span>Crédito bancario</span><span>Avalúos</span><span>Asesoría legal</span>
+  </div>
+</div></div>
+
+<section class="section" id="propiedades">
+  <div class="container">
+    <div class="bar">
+      <div class="head reveal">
+        <span class="chip">🏠 Disponibles</span>
+        <h2 style="margin-top:16px">Propiedades <span class="hl">destacadas</span></h2>
+      </div>
+      <div class="filters reveal d1">
+        <button class="filter active" data-f="all">Todas</button>
+        <button class="filter" data-f="venta">Venta</button>
+        <button class="filter" data-f="renta">Renta</button>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card reveal" data-type="venta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=70" alt="Departamento en Col. Merced" loading="lazy" onerror="this.remove()"><span class="badge">Venta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Calle Gómez, Col. Merced</span>
+          <h3>Departamento en Col. Merced</h3>
+          <div class="specs"><span>2 rec</span><span>1 baño</span><span>62 m²</span></div>
+          <div class="card-foot"><span class="price">$1,450,000 <small>MXN</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+      <article class="card reveal d1" data-type="venta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=70" alt="Departamento en Col. Guerrero" loading="lazy" onerror="this.remove()"><span class="badge">Venta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Calle Luna, Col. Guerrero</span>
+          <h3>Departamento en Col. Guerrero</h3>
+          <div class="specs"><span>2 rec</span><span>1 baño</span><span>70 m²</span><span>Clósets</span></div>
+          <div class="card-foot"><span class="price">$1,690,000 <small>MXN</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+      <article class="card reveal d2" data-type="venta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=70" alt="Casa en Jardines de San Mateo" loading="lazy" onerror="this.remove()"><span class="badge">Venta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Jardines de San Mateo, Naucalpan</span>
+          <h3>Casa familiar con jardín</h3>
+          <div class="specs"><span>3 rec</span><span>2.5 baños</span><span>180 m²</span><span>2 autos</span></div>
+          <div class="card-foot"><span class="price">$4,200,000 <small>MXN</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+      <article class="card reveal" data-type="renta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=70" alt="Departamento en renta" loading="lazy" onerror="this.remove()"><span class="badge renta">Renta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Satélite, Naucalpan</span>
+          <h3>Depa amplio cerca de Periférico</h3>
+          <div class="specs"><span>2 rec</span><span>2 baños</span><span>85 m²</span></div>
+          <div class="card-foot"><span class="price">$13,500 <small>/mes</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+      <article class="card reveal d1" data-type="renta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=70" alt="Casa en renta" loading="lazy" onerror="this.remove()"><span class="badge renta">Renta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Lomas Verdes, Naucalpan</span>
+          <h3>Casa en privada con vigilancia</h3>
+          <div class="specs"><span>3 rec</span><span>2 baños</span><span>150 m²</span></div>
+          <div class="card-foot"><span class="price">$22,000 <small>/mes</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+      <article class="card reveal d2" data-type="renta">
+        <div class="card-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=70" alt="Local comercial" loading="lazy" onerror="this.remove()"><span class="badge renta">Renta</span><button class="fav" aria-label="Guardar">♡</button></div>
+        <div class="card-body">
+          <span class="loc">📍 Av. Alcanfores, San Mateo</span>
+          <h3>Local comercial en plaza</h3>
+          <div class="specs"><span>Planta baja</span><span>45 m²</span><span>Estacionamiento</span></div>
+          <div class="card-foot"><span class="price">$11,000 <small>/mes</small></span><a class="go" href="#contacto" aria-label="Más info">→</a></div>
+        </div>
+      </article>
+    </div>
+    <p class="note reveal">*Precios de referencia. Pregunta por disponibilidad y más opciones por WhatsApp.</p>
+  </div>
+</section>
+
+<section class="svc-wrap" id="servicios">
+  <div class="container">
+    <div class="head reveal">
+      <span class="chip" style="background:var(--y);color:var(--ink)">⚡ Servicios</span>
+      <h2 style="margin-top:16px">Todo en un <span style="color:var(--y)">solo lugar</span></h2>
+      <p>Sin vueltas ni letras chiquitas. Te explicamos cada paso para que compres, vendas o rentes con tranquilidad.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal"><span class="n">01</span><div class="emoji">🏡</div><h3>Compra</h3><p>Encontramos el inmueble que se ajusta a tu presupuesto y a tu zona ideal.</p></div>
+      <div class="svc reveal d1"><span class="n">02</span><div class="emoji">💰</div><h3>Venta</h3><p>Promocionamos tu propiedad con fotos, video y difusión en redes.</p></div>
+      <div class="svc reveal d2"><span class="n">03</span><div class="emoji">🔑</div><h3>Renta</h3><p>Casas, departamentos y locales comerciales con contratos claros.</p></div>
+      <div class="svc reveal d3"><span class="n">04</span><div class="emoji">📋</div><h3>Crédito</h3><p>Te asesoramos con Infonavit, Fovissste, cofinavit o crédito bancario.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="credito">
+  <div class="container calc">
+    <div class="reveal">
+      <span class="chip">🧮 Simulador</span>
+      <h2 style="margin-top:16px">¿Cuánto pagarías <span class="hl">al mes?</span></h2>
+      <p style="color:var(--muted);font-size:1.08rem;margin-top:14px">Mueve los controles y calcula una mensualidad aproximada. Después te ayudamos a encontrar el crédito que más te conviene.</p>
+      <div class="credits"><span>Infonavit</span><span>Fovissste</span><span>Cofinavit</span><span>Bancario</span></div>
+      <a href="https://wa.me/525513709455?text=Hola%20CDV%2C%20quiero%20asesor%C3%ADa%20para%20mi%20cr%C3%A9dito" target="_blank" rel="noopener" class="btn btn-dark">Quiero asesoría gratis</a>
+    </div>
+    <div class="calc-box reveal d1">
+      <div class="row"><label for="precio">Precio del inmueble <output id="oPrecio"></output></label><input type="range" id="precio" min="800000" max="6000000" step="50000" value="1600000"></div>
+      <div class="row"><label for="enganche">Enganche <output id="oEng"></output></label><input type="range" id="enganche" min="5" max="50" step="1" value="10"></div>
+      <div class="row"><label for="plazo">Plazo <output id="oPlazo"></output></label><input type="range" id="plazo" min="5" max="20" step="1" value="20"></div>
+      <div class="result"><small>Mensualidad estimada</small><b id="mensual">$0</b></div>
+      <p class="fine">Cálculo ilustrativo con tasa anual del 11%. No incluye seguros ni comisiones.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="why">
+      <div class="why-item reveal"><b data-count="4.6" data-dec="1">0</b><p>Calificación en Google de clientes reales</p></div>
+      <div class="why-item reveal d1"><b data-count="240" data-suffix="+">0</b><p>Seguidores que ven nuestras propiedades en Facebook</p></div>
+      <div class="why-item reveal d2"><b data-count="6" data-suffix=" días">0</b><p>A la semana te atendemos, de lunes a sábado</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+    <div class="head reveal" style="text-align:center;margin-inline:auto">
+      <span class="chip">❓ Preguntas frecuentes</span>
+      <h2 style="margin-top:16px">Resolvemos tus <span class="hl">dudas</span></h2>
+    </div>
+    <div class="faq">
+      <div class="q reveal"><button>¿Puedo comprar con mi crédito Infonavit o Fovissste?<span class="plus">+</span></button><div class="a"><div><p>Sí. Te ayudamos a revisar tu precalificación, juntar documentos y llevar el trámite hasta la firma.</p></div></div></div>
+      <div class="q reveal"><button>¿Cuánto necesito de enganche?<span class="plus">+</span></button><div class="a"><div><p>Depende del tipo de crédito. Con Infonavit puede ser muy poco o nada; con crédito bancario suele ser desde 10%. Te lo explicamos sin compromiso.</p></div></div></div>
+      <div class="q reveal"><button>¿Qué necesito para rentar?<span class="plus">+</span></button><div class="a"><div><p>Normalmente identificación, comprobante de ingresos y depósito. Cada propiedad puede variar; pregúntanos por la que te interesa.</p></div></div></div>
+      <div class="q reveal"><button>Quiero vender mi casa, ¿cómo empiezo?<span class="plus">+</span></button><div class="a"><div><p>Escríbenos por WhatsApp. Visitamos tu inmueble, te damos una opinión de valor y armamos la publicidad con fotos y video.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <span class="chip">📬 Contacto</span>
+      <h2 style="margin-top:16px">Visítanos o escríbenos hoy</h2>
+      <div class="info">
+        <a class="info-row" href="https://maps.google.com/?q=Plaza+Jardines+Av.+Alcanfores+60+Jardines+de+San+Mateo+Naucalpan" target="_blank" rel="noopener"><span class="ic">📍</span><div><h4>Oficina</h4>Plaza Jardines, Av. Alcanfores 60, Loc. E6, Jardines de San Mateo, 53240 Naucalpan de Juárez, Edo. Méx.</div></a>
+        <a class="info-row" href="tel:+525513709455"><span class="ic">📞</span><div><h4>Teléfono / WhatsApp</h4>55 1370 9455</div></a>
+        <div class="info-row"><span class="ic">🕙</span><div><h4>Horario</h4>
+          <div class="hours" id="hours">
+            <span data-d="1">Lunes</span><span data-d="1">10:00 – 18:00</span>
+            <span data-d="2">Martes</span><span data-d="2">10:00 – 18:00</span>
+            <span data-d="3">Miércoles</span><span data-d="3">10:00 – 18:30</span>
+            <span data-d="4">Jueves</span><span data-d="4">10:00 – 18:00</span>
+            <span data-d="5">Viernes</span><span data-d="5">10:00 – 18:00</span>
+            <span data-d="6">Sábado</span><span data-d="6">9:00 – 14:00</span>
+            <span data-d="0">Domingo</span><span data-d="0">Cerrado</span>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <form class="form" id="form">
+        <h3>Agenda una visita 👋</h3>
+        <input id="n" placeholder="Tu nombre" required>
+        <input id="t" type="tel" placeholder="Tu teléfono" required>
+        <select id="i"><option>Quiero comprar</option><option>Quiero rentar</option><option>Quiero vender</option><option>Asesoría de crédito</option></select>
+        <textarea id="m" placeholder="¿Qué estás buscando? (zona, presupuesto, recámaras...)"></textarea>
+        <button class="btn btn-dark" type="submit">Enviar por WhatsApp →</button>
+      </form>
+      <div class="map"><iframe src="https://maps.google.com/maps?q=Av.%20Alcanfores%2060%2C%20Jardines%20de%20San%20Mateo%2C%20Naucalpan&z=15&output=embed" loading="lazy" title="Ubicación CDV Real Estate"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo"><span class="logo-mark">CDV</span><div>CDV<small>Real Estate</small></div></div>
+    <div class="social">
+      <a href="https://www.facebook.com/search/top?q=CDV%20Real%20Estate%20Naucalpan" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8V6c0-.9.6-1 1-1h2V2h-3c-3 0-4 2-4 4v2H8v3h2v11h4V11h3l.5-3z"/></svg></a>
+      <a href="https://wa.me/525513709455" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg></a>
+      <a href="tel:+525513709455" aria-label="Llamar"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+    </div>
+    <p>© <span id="y"></span> CDV Real Estate · Naucalpan de Juárez, Estado de México</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/525513709455?text=Hola%20CDV%20Real%20Estate%2C%20me%20interesa%20una%20propiedad" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg><span>¿Hablamos?</span></a>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const nav=$('#nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
+const burger=$('#burger'),menu=$('#menu');
+burger.onclick=()=>{burger.classList.toggle('open');menu.classList.toggle('open')};
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open');menu.classList.remove('open')});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  if(e.target.dataset.count)countUp(e.target);
+  io.unobserve(e.target);
+}),{threshold:.15});
+$$('.reveal').forEach(el=>io.observe(el));
+function countUp(el){
+  if(el.dataset.done)return;el.dataset.done=1;
+  const end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suffix||'',t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1600,1);el.textContent=(end*(1-Math.pow(1-p,4))).toFixed(dec)+suf;if(p<1)requestAnimationFrame(tick)})(t0);
+}
+
+$$('.filter').forEach(b=>b.onclick=()=>{
+  $$('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  $$('.card').forEach(c=>{c.classList.toggle('hide',b.dataset.f!=='all'&&c.dataset.type!==b.dataset.f);c.classList.add('in')});
+});
+$$('.fav').forEach(f=>f.onclick=e=>{e.preventDefault();f.classList.toggle('on');f.textContent=f.classList.contains('on')?'♥':'♡'});
+
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const precio=$('#precio'),eng=$('#enganche'),plazo=$('#plazo');
+function calc(){
+  [precio,eng,plazo].forEach(r=>r.style.setProperty('--p',((r.value-r.min)/(r.max-r.min)*100)+'%'));
+  $('#oPrecio').textContent=fmt(precio.value);
+  $('#oEng').textContent=eng.value+'% · '+fmt(precio.value*eng.value/100);
+  $('#oPlazo').textContent=plazo.value+' años';
+  const P=precio.value*(1-eng.value/100),r=.11/12,n=plazo.value*12;
+  $('#mensual').textContent=fmt(P*r/(1-Math.pow(1+r,-n)));
+}
+[precio,eng,plazo].forEach(r=>r.oninput=calc);calc();
+
+$$('.q button').forEach(b=>b.onclick=()=>{
+  const q=b.parentElement,open=q.classList.contains('open');
+  $$('.q').forEach(x=>x.classList.remove('open'));
+  if(!open)q.classList.add('open');
+});
+
+const today=new Date().getDay();
+$$('#hours [data-d="'+today+'"]').forEach(s=>s.classList.add('today'));
+
+$('#form').onsubmit=e=>{
+  e.preventDefault();
+  const v=id=>$('#'+id).value.trim();
+  const msg=`Hola CDV Real Estate, soy ${v('n')} (${v('t')}). ${v('i')}. ${v('m')}`;
+  window.open('https://wa.me/525513709455?text='+encodeURIComponent(msg),'_blank','noopener');
+};
+$('#y').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
