@@ -7,331 +7,411 @@
 <meta name="description" content="RAM HOUSE Agencia Inmobiliaria en Narvarte Poniente, Benito Juárez, CDMX. Compra, venta y renta de departamentos y casas. 5.0 ★ en Google con 131 reseñas. Abierto todos los días.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Pinyon+Script&family=Archivo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Pinyon+Script&family=Archivo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
 :root{
-  --black:#0a0a0a;
-  --coal:#141414;
-  --coal-2:#1d1d1d;
-  --white:#f6f5f2;
+  --bg:#070707;
+  --bg-2:#0e0e0f;
+  --surface:#141416;
+  --glass:rgba(255,255,255,.045);
+  --glass-b:rgba(255,255,255,.09);
+  --white:#f5f4f1;
   --silver:#c9c9c9;
-  --silver-2:#8e8e8e;
-  --red:#d7191f;
-  --red-2:#ff3b3f;
-  --text:#111;
-  --muted:#6d6d6d;
-  --line:rgba(0,0,0,.1);
-  --line-d:rgba(255,255,255,.1);
+  --muted:#8f8f94;
+  --red:#e11d25;
+  --red-2:#ff4148;
+  --glow:rgba(225,29,37,.45);
   --serif:'Bodoni Moda',Didot,Georgia,serif;
   --script:'Pinyon Script',cursive;
   --sans:'Archivo',system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-io:cubic-bezier(.77,0,.18,1);
-  --metal:linear-gradient(180deg,#fff 0%,#cfcfcf 45%,#8f8f8f 55%,#e8e8e8 100%);
+  --metal:linear-gradient(180deg,#fff 0%,#d9d9d9 40%,#7d7d7d 52%,#f0f0f0 100%);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--white);color:var(--text);line-height:1.65;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-1%,3%)}}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.container{width:min(1260px,100% - 32px);margin-inline:auto}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.01em}
-h2{font-size:clamp(2.4rem,5.2vw,4.2rem)}
+::selection{background:var(--red);color:#fff}
+.container{width:min(1280px,100% - 32px);margin-inline:auto;position:relative}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.015em}
+h2{font-size:clamp(2.5rem,5.6vw,4.6rem)}
 h1 i,h2 i{font-style:italic;font-weight:400}
+.metal{background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
 .red{color:var(--red)}
-.kicker{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--red)}
-.kicker::before{content:"";width:8px;height:8px;background:var(--red)}
-.section{padding:130px 0}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-size:.7rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--red-2)}
+.kicker::before{content:"";width:8px;height:8px;background:var(--red);box-shadow:0 0 14px var(--red)}
+.section{padding:140px 0;position:relative}
 .lead{font-size:1.06rem;color:var(--muted);max-width:540px}
-.dark{background:var(--black);color:var(--white)}
-.dark .lead{color:#9d9d9d}
-.fb{background:linear-gradient(135deg,#2a2a2a,#0d0d0d)}
-.bw img,.bw{filter:grayscale(1) contrast(1.05)}
+.fb{background:linear-gradient(135deg,#262628,#0c0c0d)}
+.glass{background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(60px,-40px) scale(1.15)}}
+
+/* progress + cursor */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--red);box-shadow:0 0 12px var(--red);transform-origin:left;transform:scaleX(0);z-index:95}
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:99;border-radius:50%;opacity:0;transition:opacity .3s}
+.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--red)}
+.cur-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;font-size:.62rem;font-weight:700;letter-spacing:.14em;color:#fff;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background .45s,border-color .45s,opacity .3s}
+.cur-ring span{opacity:0;transition:opacity .3s}
+.cur-ring.big{width:92px;height:92px;margin:-46px 0 0 -46px;background:var(--red);border-color:var(--red)}
+.cur-ring.big span{opacity:1}
+.cur-ring.link{width:60px;height:60px;margin:-30px 0 0 -30px;border-color:var(--red)}
+@media (pointer:fine){.has-cursor.moved .cur-dot,.has-cursor.moved .cur-ring{opacity:1}}
 
 /* buttons */
-.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s}
-.btn::after{content:"";position:absolute;inset:0;z-index:-1;transform:translateY(101%);transition:transform .6s var(--ease-io)}
-.btn:hover::after{transform:none}
-.btn-red{background:var(--red);color:#fff}
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:19px 36px;font-family:var(--sans);font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;overflow:hidden;isolation:isolate;border-radius:60px;transition:color .5s var(--ease),border-color .5s,box-shadow .5s,transform .4s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:scale(0);transition:transform .6s var(--ease)}
+.btn:hover::after{transform:scale(1.05)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 40px -8px var(--glow)}
 .btn-red::after{background:#fff}
-.btn-red:hover{color:var(--black)}
-.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff}
+.btn-red:hover{color:#000;box-shadow:0 14px 60px -6px var(--glow)}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.04);backdrop-filter:blur(10px)}
 .btn-ghost::after{background:#fff}
-.btn-ghost:hover{color:var(--black)}
-.btn-black{background:var(--black);color:#fff}
-.btn-black::after{background:var(--red)}
+.btn-ghost:hover{color:#000}
 .arr{display:inline-block;transition:transform .5s var(--ease)}
-.btn:hover .arr{transform:translateX(6px)}
+.btn:hover .arr{transform:translateX(6px) rotate(-45deg)}
 
 /* loader */
-.loader{position:fixed;inset:0;z-index:100;background:var(--black);display:grid;place-items:center;animation:up 1s var(--ease-io) 1.7s forwards}
-.loader-in{display:flex;align-items:center;gap:22px}
-.loader .R{font-family:var(--serif);font-size:5.4rem;line-height:1;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;clip-path:inset(0 0 100% 0);animation:uncover 1s var(--ease) .15s forwards}
-.loader .bar{width:1px;height:0;background:var(--silver);animation:tall .7s var(--ease) .5s forwards}
-.loader .sc{font-family:var(--script);font-size:3.2rem;color:#fff;opacity:0;transform:translateX(-14px);animation:sl .9s var(--ease) .75s forwards}
+.loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;animation:lift 1.1s var(--ease-io) 1.9s forwards}
+.loader-in{display:flex;align-items:center;gap:22px;position:relative}
+.loader-in::before{content:"";position:absolute;left:50%;top:50%;width:340px;height:340px;margin:-170px;border-radius:50%;background:radial-gradient(var(--glow),transparent 65%);opacity:0;animation:fade 1.2s .3s forwards}
+.loader .R{font-family:var(--serif);font-size:5.6rem;line-height:1;clip-path:inset(0 0 100% 0);animation:uncover 1s var(--ease) .15s forwards;position:relative}
+.loader .bar{width:1px;height:0;background:var(--silver);animation:tall .7s var(--ease) .55s forwards;position:relative}
+.loader .sc{font-family:var(--script);font-size:3.4rem;opacity:0;transform:translateX(-14px);animation:sl .9s var(--ease) .8s forwards;position:relative}
+.loader .pct{position:absolute;left:50%;bottom:-70px;transform:translateX(-50%);font-size:.66rem;letter-spacing:.4em;color:var(--muted)}
 @keyframes uncover{to{clip-path:inset(0 0 0 0)}}
-@keyframes tall{to{height:84px}}
+@keyframes tall{to{height:88px}}
 @keyframes sl{to{opacity:1;transform:none}}
-@keyframes up{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes fade{to{opacity:1}}
+@keyframes lift{to{clip-path:inset(0 0 100% 0);visibility:hidden}}
 
 /* nav */
-nav{position:fixed;inset:0 0 auto;z-index:50;padding:24px 0;transition:padding .5s var(--ease),background .5s}
-nav.scrolled{padding:12px 0;background:rgba(10,10,10,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-d)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;color:#fff}
+nav{position:fixed;inset:18px 0 auto;z-index:50;transition:inset .5s var(--ease)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 26px;border-radius:80px;border:1px solid transparent;transition:background .5s,border-color .5s,box-shadow .5s}
+nav.scrolled{inset:10px 0 auto}
+nav.scrolled .nav-in{background:rgba(14,14,15,.66);border-color:var(--glass-b);backdrop-filter:blur(20px) saturate(150%);box-shadow:0 20px 50px -20px rgba(0,0,0,.8)}
 .brand{display:flex;align-items:center;gap:14px}
-.brand .R{font-family:var(--serif);font-size:2.6rem;line-height:1;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand .sep{width:1px;height:38px;background:var(--silver-2)}
+.brand .R{font-family:var(--serif);font-size:2.4rem;line-height:1}
+.brand .sep{width:1px;height:34px;background:linear-gradient(transparent,var(--silver),transparent)}
 .brand .nm{display:flex;flex-direction:column;line-height:1}
-.brand .sc{font-family:var(--script);font-size:1.9rem;line-height:.9}
-.brand small{font-size:.5rem;font-weight:700;letter-spacing:.34em;color:var(--red);margin-top:4px}
-.links{display:flex;gap:36px;list-style:none;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.links a{position:relative;padding:6px 0;color:#d7d7d7;transition:color .3s}
-.links a::before{content:"";position:absolute;left:50%;bottom:-4px;width:5px;height:5px;background:var(--red);transform:translateX(-50%) scale(0);transition:transform .4s var(--ease)}
-.links a:hover{color:#fff}
-.links a:hover::before{transform:translateX(-50%) scale(1)}
-.nav-cta{padding:12px 22px;font-size:.68rem}
-.burger{display:none;background:none;border:none;width:30px;height:18px;position:relative;cursor:pointer}
-.burger span{position:absolute;left:0;width:100%;height:1.5px;background:#fff;transition:.5s var(--ease)}
-.burger span:nth-child(1){top:0}.burger span:nth-child(2){top:16px}
-.burger.open span:nth-child(1){top:8px;transform:rotate(45deg);background:var(--red)}
-.burger.open span:nth-child(2){top:8px;transform:rotate(-45deg);background:var(--red)}
+.brand .sc{font-family:var(--script);font-size:1.8rem;line-height:.9}
+.brand small{font-size:.48rem;font-weight:800;letter-spacing:.34em;color:var(--red-2);margin-top:4px}
+.links{display:flex;gap:6px;list-style:none;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.links a{display:block;padding:10px 16px;border-radius:40px;color:#cfcfcf;transition:background .4s,color .4s}
+.links a:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-cta{padding:14px 24px;font-size:.66rem}
+.burger{display:none;background:rgba(255,255,255,.06);border:1px solid var(--glass-b);width:48px;height:48px;border-radius:50%;position:relative;cursor:pointer}
+.burger span{position:absolute;left:15px;width:18px;height:1.5px;background:#fff;transition:.5s var(--ease)}
+.burger span:nth-child(1){top:19px}.burger span:nth-child(2){top:27px}
+.burger.open span:nth-child(1){top:23px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:23px;transform:rotate(-45deg)}
 
 /* hero */
-.hero{position:relative;height:100vh;min-height:700px;background:var(--black);color:#fff;overflow:hidden}
-.slide{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.1);opacity:0;transform:scale(1.15);transition:opacity 1.8s var(--ease),transform 9s linear}
-.slide.on{opacity:1;transform:scale(1)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.92) 100%)}
-.hero-in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:120px}
-.hero h1{font-size:clamp(3.2rem,9vw,8.6rem);max-width:1100px;margin:22px 0 30px}
-.ln{display:block;overflow:hidden;padding-bottom:.06em}
-.ln>span{display:block;transform:translateY(110%);animation:rise 1.3s var(--ease) forwards}
+.hero{position:relative;height:100vh;min-height:760px;overflow:hidden;background:var(--bg)}
+.slide{position:absolute;inset:-4%;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.15) brightness(.8);opacity:0;transform:scale(1.15);transition:opacity 1.8s var(--ease),transform 9s linear}
+.slide.on{opacity:1;transform:scale(1.02)}
+.hero-shade{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 70% 40%,transparent 0%,rgba(7,7,7,.55) 55%,rgba(7,7,7,.96) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 45%)}
+.hero-grid-lines{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:120px 120px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+.ghost{position:absolute;z-index:1;left:50%;top:44%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:clamp(10rem,32vw,30rem);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.09);white-space:nowrap;pointer-events:none;user-select:none}
+.hero .orb.o1{width:520px;height:520px;right:-120px;top:-80px;background:var(--glow);z-index:1}
+.hero .orb.o2{width:360px;height:360px;left:-140px;bottom:-60px;background:rgba(225,29,37,.25);z-index:1;animation-delay:-6s}
+.hero-in{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:110px}
+.hero h1{font-size:clamp(3.4rem,9.4vw,9.4rem);max-width:1150px;margin:24px 0 34px;text-shadow:0 20px 60px rgba(0,0,0,.6)}
+.ln{display:block;overflow:hidden;padding-bottom:.08em}
+.ln>span{display:block;transform:translateY(110%) rotate(3deg);transform-origin:left bottom;animation:rise 1.4s var(--ease) forwards}
 @keyframes rise{to{transform:none}}
+.hero h1 i{background:linear-gradient(90deg,#fff,#9a9a9a,#fff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1.4s var(--ease) forwards,shine 5s linear infinite}
+@keyframes shine{to{background-position:200% center}}
 .hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
-.hero .lead{color:#c8c8c8}
+.hero .lead{color:#c6c6c6}
 .acts{display:flex;gap:14px;flex-wrap:wrap}
 .fu{opacity:0;transform:translateY(26px);animation:fu 1.1s var(--ease) forwards}
 @keyframes fu{to{opacity:1;transform:none}}
-.counter{position:absolute;right:32px;top:50%;z-index:3;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:14px;font-family:var(--serif);font-size:.9rem;color:#aaa}
+.float{position:absolute;z-index:3;will-change:transform;transition:transform .6s var(--ease)}
+.fcard{border-radius:22px;padding:18px 22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7);display:flex;align-items:center}
+.f-rate{right:7%;top:24%}
+.f-rate .fcard{gap:16px}
+.avatars{display:flex}
+.avatars span{width:38px;height:38px;border-radius:50%;border:2px solid #1a1a1a;margin-left:-10px;display:grid;place-items:center;font-size:.8rem;font-weight:700;background:linear-gradient(135deg,#444,#222)}
+.avatars span:first-child{margin-left:0;background:linear-gradient(135deg,var(--red),#7a0b0f)}
+.f-rate b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1}
+.f-rate small{color:var(--muted);font-size:.74rem}
+.stars{color:#ffcc3d;letter-spacing:2px;font-size:.8rem}
+.f-open{right:18%;top:46%}
+.f-open .fcard{gap:12px;font-size:.84rem}
+.pulse{width:10px;height:10px;border-radius:50%;background:#2ee26b;box-shadow:0 0 0 0 rgba(46,226,107,.6);animation:pl 1.8s infinite}
+.pulse.off{background:var(--red);box-shadow:0 0 0 0 var(--glow)}
+@keyframes pl{to{box-shadow:0 0 0 12px rgba(46,226,107,0)}}
+.counter{position:absolute;right:34px;bottom:120px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:14px;font-family:var(--serif);color:#999}
 .counter b{color:#fff;font-weight:500;font-size:1.3rem}
-.counter i{width:1px;height:90px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
-.counter i::after{content:"";position:absolute;left:0;top:0;width:100%;height:100%;background:var(--red);transform:scaleY(0);transform-origin:top}
+.counter i{width:1px;height:90px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
+.counter i::after{content:"";position:absolute;inset:0;background:var(--red);box-shadow:0 0 10px var(--red);transform:scaleY(0);transform-origin:top}
 .counter i.run::after{animation:fill 6s linear forwards}
 @keyframes fill{to{transform:scaleY(1)}}
 
 /* marquee */
-.mq{background:var(--red);color:#fff;overflow:hidden;padding:18px 0}
-.mq-track{display:flex;width:max-content;animation:mq 30s linear infinite}
-.mq-track span{font-family:var(--serif);font-size:1.6rem;font-style:italic;padding:0 34px;display:flex;align-items:center;gap:68px;white-space:nowrap}
-.mq-track span::after{content:"R";font-style:normal;font-size:1rem;opacity:.7}
+.mq{position:relative;z-index:4;padding:26px 0;overflow:hidden;border-block:1px solid var(--glass-b);background:linear-gradient(90deg,var(--bg),#120707 50%,var(--bg))}
+.mq-track{display:flex;width:max-content;animation:mq 34s linear infinite}
+.mq-track span{font-family:var(--serif);font-size:clamp(2rem,4vw,3.4rem);font-style:italic;padding:0 30px;display:flex;align-items:center;gap:60px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.45);transition:color .4s}
+.mq-track span:nth-child(odd){color:#fff;-webkit-text-stroke:0}
+.mq-track span::after{content:"";width:12px;height:12px;background:var(--red);transform:rotate(45deg);box-shadow:0 0 16px var(--red)}
+.mq:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.st{padding:54px 30px;border-right:1px solid var(--line)}
-.st:last-child{border-right:none}
-.st b{display:block;font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.4rem);font-weight:500;line-height:1}
-.st b sup{font-size:.4em;color:var(--red);margin-left:4px}
-.st span{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* stats bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-2px}
+.tile{position:relative;border-radius:26px;padding:34px 30px;overflow:hidden;isolation:isolate;transition:transform .6s var(--ease)}
+.tile::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:conic-gradient(from var(--ang),transparent 0 70%,var(--red) 85%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinB 5s linear infinite;opacity:.9}
+@keyframes spinB{to{--ang:360deg}}
+.tile::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(var(--glow),transparent 70%);z-index:-1;opacity:.6;transition:opacity .6s,transform .6s var(--ease)}
+.tile:hover{transform:translateY(-6px)}
+.tile:hover::after{opacity:1;transform:scale(1.4)}
+.tile b{display:block;font-family:var(--serif);font-size:clamp(3rem,5vw,4.6rem);font-weight:500;line-height:1}
+.tile b sup{font-size:.4em;color:var(--red-2);margin-left:4px}
+.tile span{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
 /* about */
 .about{display:grid;grid-template-columns:1.1fr 1fr;gap:100px;align-items:center}
-.stack{position:relative;height:640px}
-.stack .a{position:absolute;left:0;top:0;width:74%;height:86%;overflow:hidden}
-.stack .b{position:absolute;right:0;bottom:0;width:48%;height:50%;overflow:hidden;border:12px solid var(--white)}
+.stack{position:relative;height:660px;perspective:1200px}
+.stack .a,.stack .b{position:absolute;overflow:hidden;border-radius:28px;box-shadow:0 50px 90px -30px rgba(0,0,0,.9)}
+.stack .a{left:0;top:0;width:74%;height:84%}
+.stack .b{right:0;bottom:0;width:50%;height:50%;border:1px solid var(--glass-b)}
 .stack img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter 1.2s var(--ease),transform 1.6s var(--ease)}
 .stack:hover img{filter:grayscale(0)}
-.stack .stamp{position:absolute;right:6%;top:6%;width:132px;height:132px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;z-index:2;animation:spin 18s linear infinite}
+.stack .glowline{position:absolute;left:-30px;top:12%;width:2px;height:60%;background:linear-gradient(transparent,var(--red),transparent);box-shadow:0 0 20px var(--red)}
+.stamp{position:absolute;right:4%;top:4%;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--red-2),#8d0a10);color:#fff;display:grid;place-items:center;z-index:2;box-shadow:0 20px 60px -10px var(--glow);animation:spin 18s linear infinite}
 .stamp svg{position:absolute;inset:0;width:100%;height:100%}
-.stamp b{font-family:var(--serif);font-size:2rem;line-height:1;animation:spin 18s linear infinite reverse}
+.stamp b{font-family:var(--serif);font-size:2.2rem;line-height:1;animation:spin 18s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
-.about h2{margin:20px 0 24px}
-.list{list-style:none;margin:34px 0 42px;border-top:1px solid var(--line)}
-.list li{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);transition:padding .5s var(--ease)}
-.list li:hover{padding-left:12px}
-.list li b{font-family:var(--serif);font-size:1.3rem;font-weight:500}
-.list li span{font-size:.86rem;color:var(--muted);text-align:right}
+.about h2{margin:22px 0 26px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:36px 0 42px}
+.chip{border-radius:20px;padding:22px;transition:transform .5s var(--ease),border-color .5s,background .5s}
+.chip:hover{transform:translateY(-5px);border-color:rgba(225,29,37,.5);background:rgba(225,29,37,.07)}
+.chip svg{width:26px;height:26px;stroke:var(--red-2);fill:none;stroke-width:1.4;margin-bottom:14px}
+.chip b{display:block;font-family:var(--serif);font-size:1.3rem;font-weight:500}
+.chip span{font-size:.84rem;color:var(--muted)}
 
-/* curtain reveal */
+/* curtain */
 .cur{position:relative;overflow:hidden}
-.cur::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:right;transition:transform 1.2s var(--ease-io)}
+.cur::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:right;transition:transform 1.2s var(--ease-io);z-index:2}
 .in .cur::after,.cur.in::after{transform:scaleX(0)}
 .cur img{transform:scale(1.3);transition:transform 1.8s var(--ease),filter 1.2s}
 .in .cur img,.cur.in img{transform:scale(1)}
 
 /* properties */
-.props{background:var(--black);color:var(--white)}
-.top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:60px}
+.props{background:radial-gradient(ellipse at 50% 0%,#1a0a0b 0%,var(--bg) 60%)}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:64px}
 .top h2{margin-top:18px}
-.tabs{display:flex;gap:28px}
-.tab{background:none;border:none;color:#777;font-family:var(--serif);font-size:1.5rem;font-style:italic;cursor:pointer;position:relative;padding-bottom:6px;transition:color .4s}
-.tab::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.tab.on{color:#fff}
-.tab.on::after{transform:scaleX(1)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 30px}
-.p{cursor:pointer}
+.tabs{display:flex;gap:6px;padding:6px;border-radius:60px}
+.tab{background:none;border:none;color:#aaa;font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:13px 24px;border-radius:40px;cursor:pointer;transition:.45s var(--ease)}
+.tab.on{background:var(--red);color:#fff;box-shadow:0 8px 24px -6px var(--glow)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.p{position:relative;display:block;border-radius:26px;transform-style:preserve-3d;transition:transform .7s var(--ease),box-shadow .7s var(--ease);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
 .p.hide{display:none}
-.p-img{position:relative;aspect-ratio:3/4;overflow:hidden}
-.p:nth-child(3n+2) .p-img{aspect-ratio:3/3.6}
-.p-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transform:scale(1.02);transition:filter 1s var(--ease),transform 1.5s var(--ease)}
-.p:hover .p-img img{filter:grayscale(0);transform:scale(1.08)}
-.p-tag{position:absolute;left:0;top:22px;z-index:2;background:var(--red);color:#fff;padding:7px 14px;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.p-tag.w{background:#fff;color:var(--black)}
-.p-more{position:absolute;right:18px;bottom:18px;z-index:2;width:58px;height:58px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:1.3rem;transform:scale(0) rotate(-90deg);transition:transform .6s var(--ease)}
-.p:hover .p-more{transform:none}
-.p-info{padding-top:22px;display:flex;justify-content:space-between;gap:16px}
-.p-info small{font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--red-2)}
-.p-info h3{font-size:1.55rem;margin:6px 0 8px}
-.p-info .sp{font-size:.84rem;color:#999}
-.p-price{font-family:var(--serif);font-size:1.45rem;white-space:nowrap;text-align:right}
-.p-price small{display:block;color:#888;font-family:var(--sans);font-size:.66rem;letter-spacing:.1em}
-.note{margin-top:46px;font-size:.8rem;color:#777;text-align:center}
+.p:hover{box-shadow:0 50px 90px -30px rgba(0,0,0,1),0 0 0 1px rgba(225,29,37,.35)}
+.p-img{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:26px}
+.p-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.85);transform:scale(1.04);transition:filter 1s var(--ease),transform 1.6s var(--ease)}
+.p:hover .p-img img{filter:grayscale(0) brightness(1);transform:scale(1.12)}
+.p-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,transparent 55%)}
+.glare{position:absolute;inset:0;z-index:3;border-radius:26px;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.22),transparent 45%);opacity:0;transition:opacity .5s}
+.p:hover .glare{opacity:1}
+.p-tag{position:absolute;left:20px;top:20px;z-index:4;padding:8px 16px;border-radius:40px;font-size:.62rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;background:var(--red);color:#fff;box-shadow:0 6px 20px -4px var(--glow);transform:translateZ(40px)}
+.p-tag.w{background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25)}
+.p-info{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;border-radius:20px;padding:20px 22px;transform:translateZ(60px)}
+.p-info small{font-size:.64rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red-2)}
+.p-info h3{font-size:1.45rem;margin:4px 0 10px}
+.p-bot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.p-bot .sp{font-size:.8rem;color:#bbb}
+.p-price{font-family:var(--serif);font-size:1.35rem;white-space:nowrap}
+.p-price small{font-family:var(--sans);font-size:.62rem;color:#aaa;letter-spacing:.08em}
+.note{margin-top:50px;font-size:.8rem;color:#777;text-align:center}
 
-/* process */
-.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:70px}
-.track-line{position:absolute;left:0;right:0;top:27px;height:1px;background:var(--line)}
-.track-line i{position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 2.2s var(--ease)}
-.steps.in .track-line i{transform:scaleX(1)}
-.step{position:relative}
-.step .dot{width:56px;height:56px;border-radius:50%;background:var(--white);border:1px solid var(--black);display:grid;place-items:center;font-family:var(--serif);font-size:1.2rem;margin-bottom:26px;position:relative;z-index:1;transition:background .5s,color .5s,border-color .5s}
-.steps.in .step .dot{background:var(--black);color:#fff}
-.steps.in .step:nth-child(2) .dot{transition-delay:.5s}.steps.in .step:nth-child(3) .dot{transition-delay:1s}.steps.in .step:nth-child(4) .dot{transition-delay:1.5s}
-.steps.in .step:nth-child(5) .dot{transition-delay:2s;background:var(--red);border-color:var(--red)}
-.step h3{font-size:1.45rem;margin-bottom:8px}
-.step p{font-size:.92rem;color:var(--muted)}
+/* stacked process */
+.process-head{max-width:680px;margin-bottom:70px}
+.cards{position:relative}
+.scard{position:sticky;top:120px;height:min(560px,72vh);margin-bottom:60px;border-radius:34px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;background:var(--surface);border:1px solid var(--glass-b);box-shadow:0 -30px 80px -20px rgba(0,0,0,.9);transform-origin:center top;will-change:transform}
+.scard:nth-child(2){top:140px}.scard:nth-child(3){top:160px}.scard:nth-child(4){top:180px}
+.scard-txt{padding:60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.scard-txt::before{content:"";position:absolute;left:-100px;bottom:-100px;width:300px;height:300px;border-radius:50%;background:radial-gradient(var(--glow),transparent 70%);opacity:.5}
+.scard .num{font-family:var(--serif);font-size:clamp(5rem,10vw,9rem);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);position:relative}
+.scard h3{font-size:clamp(2rem,3.4vw,3rem);margin-bottom:14px;position:relative}
+.scard p{color:var(--muted);max-width:420px;position:relative}
+.scard-img{position:relative;overflow:hidden}
+.scard-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter 1s}
+.scard:hover .scard-img img{filter:grayscale(0)}
+.scard:nth-child(4){background:linear-gradient(135deg,#2a0406,#140304)}
 
-/* band */
-.band{position:relative;height:88vh;min-height:560px;overflow:hidden;color:#fff;display:flex;align-items:center}
-.band-bg{position:absolute;inset:-18% 0;background-size:cover;background-position:center;filter:grayscale(1)}
-.band::after{content:"";position:absolute;inset:0;background:rgba(10,10,10,.6)}
-.band .container{position:relative;z-index:2}
-.band blockquote{font-family:var(--serif);font-size:clamp(2.2rem,5.4vw,4.8rem);line-height:1.1;max-width:1000px}
-.band blockquote em{font-family:var(--script);font-style:normal;color:var(--red-2);font-size:1.25em}
-.band p{margin-top:30px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#bbb}
+/* word reveal */
+.words{position:relative;padding:180px 0;overflow:hidden}
+.words-bg{position:absolute;inset:-15% 0;background-size:cover;background-position:center;filter:grayscale(1) brightness(.35);will-change:transform}
+.words::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--bg),transparent 25%,transparent 75%,var(--bg))}
+.words .container{z-index:2}
+.words p.big{font-family:var(--serif);font-size:clamp(2.2rem,5.4vw,4.8rem);line-height:1.12;max-width:1100px}
+.words p.big span{opacity:.14;transition:opacity .4s,color .4s}
+.words p.big span.lit{opacity:1}
+.words p.big span.hot{color:var(--red-2);font-style:italic}
+.words small{display:block;margin-top:34px;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 
-/* zones */
-.zones{display:grid;grid-template-columns:repeat(5,1fr);height:520px;margin-top:60px;gap:6px}
-.z{position:relative;overflow:hidden;color:#fff;transition:flex .8s var(--ease)}
-.z img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.7);transition:filter 1s var(--ease),transform 1.4s var(--ease)}
-.z:hover img{filter:grayscale(0) brightness(.85);transform:scale(1.08)}
-.z-t{position:absolute;left:22px;right:22px;bottom:22px;z-index:2}
-.z-t small{font-family:var(--serif);font-style:italic;color:var(--red-2)}
-.z-t h3{font-size:1.5rem;margin-top:4px}
-.z::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 55%)}
-.z::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--red);z-index:2;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
-.z:hover::after{transform:scaleX(1)}
+/* horizontal zones */
+.hs{position:relative}
+.hs-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px}
+.hs-track{display:flex;gap:26px;padding-left:max(16px,calc((100vw - 1280px)/2));will-change:transform}
+.zc{position:relative;flex:0 0 clamp(280px,32vw,460px);height:clamp(360px,56vh,560px);border-radius:30px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.zc img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.7);transition:filter 1s var(--ease),transform 1.4s var(--ease)}
+.zc:hover img{filter:grayscale(0) brightness(.9);transform:scale(1.08)}
+.zc::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent 55%)}
+.zc-t{position:absolute;left:26px;right:26px;bottom:26px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+.zc-t small{font-family:var(--serif);font-style:italic;color:var(--red-2);font-size:1rem}
+.zc-t h3{font-size:2.2rem;margin-top:2px}
+.zc-t span{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-size:1.1rem;transition:background .4s,transform .5s var(--ease)}
+.zc:hover .zc-t span{background:var(--red);transform:rotate(-45deg)}
+.zc .idx{position:absolute;top:22px;right:26px;z-index:2;font-family:var(--serif);font-size:.95rem;color:#ddd}
+.hs-bar{margin-top:40px;height:2px;background:rgba(255,255,255,.1);position:relative;overflow:hidden;border-radius:2px}
+.hs-bar i{position:absolute;inset:0;background:var(--red);box-shadow:0 0 10px var(--red);transform-origin:left;transform:scaleX(0)}
 
 /* sell */
-.sell{display:grid;grid-template-columns:1fr 1fr;min-height:640px}
-.sell-img{position:relative;overflow:hidden}
-.sell-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
-.sell-txt{background:var(--coal);color:#fff;padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
+.sell{display:grid;grid-template-columns:1.05fr 1fr;gap:0;border-radius:36px;overflow:hidden;border:1px solid var(--glass-b);background:var(--surface);box-shadow:0 60px 120px -40px rgba(0,0,0,1)}
+.sell-img{position:relative;min-height:620px;overflow:hidden}
+.sell-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.sell-img .badge{position:absolute;left:28px;bottom:28px;z-index:3;border-radius:20px;padding:18px 22px;display:flex;gap:14px;align-items:center}
+.sell-img .badge b{font-family:var(--serif);font-size:2rem;line-height:1}
+.sell-txt{position:relative;padding:80px 70px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.sell-txt .orb{width:360px;height:360px;right:-160px;top:-120px;background:var(--glow)}
+.sell-txt>*{position:relative;z-index:1}
 .sell-txt h2{margin:18px 0 22px}
-.sell-txt ul{list-style:none;margin:10px 0 40px}
-.sell-txt li{padding:14px 0;border-bottom:1px solid var(--line-d);display:flex;gap:16px;color:#ccc}
-.sell-txt li::before{content:"—";color:var(--red-2)}
+.checks{list-style:none;margin:14px 0 40px;display:grid;gap:12px}
+.checks li{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:16px;color:#ddd;transition:transform .5s var(--ease),border-color .5s}
+.checks li:hover{transform:translateX(8px);border-color:rgba(225,29,37,.5)}
+.checks li i{width:26px;height:26px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-style:normal;font-size:.75rem;flex-shrink:0;box-shadow:0 0 14px var(--glow)}
 
 /* contact */
-.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.contact{overflow:hidden}
+.contact .orb.o1{width:600px;height:600px;left:-260px;top:10%;background:rgba(225,29,37,.28)}
+.contact .orb.o2{width:420px;height:420px;right:-160px;bottom:0;background:rgba(255,255,255,.06);animation-delay:-8s}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;position:relative;z-index:1}
 .c-grid h2{margin:18px 0 36px}
-.row{display:flex;gap:22px;padding:24px 0;border-bottom:1px solid var(--line)}
-.row .ic{width:44px;height:44px;border:1px solid var(--black);border-radius:50%;display:grid;place-items:center;flex-shrink:0;transition:background .4s,color .4s,border-color .4s}
-.row:hover .ic{background:var(--red);border-color:var(--red);color:#fff}
-.row .ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
-.row h4{font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:4px}
-.row p{font-size:1rem}
-.hours{display:grid;grid-template-columns:auto auto;gap:3px 26px;font-size:.92rem;color:var(--muted)}
-.hours .today{color:var(--black);font-weight:700}
-.hours .today:first-child,.hours span.today:nth-child(odd){position:relative}
-.open{display:inline-block;margin-left:8px;padding:2px 10px;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--red);color:#fff;vertical-align:middle}
-.form{background:var(--black);color:#fff;padding:52px}
-.form h3{font-size:2.1rem;margin-bottom:8px}
-.form>p{color:#999;margin-bottom:30px;font-size:.92rem}
-.f{position:relative;margin-bottom:26px}
-.f input,.f select,.f textarea{width:100%;background:none;border:none;border-bottom:1px solid #3a3a3a;color:#fff;padding:14px 0 10px;font-family:var(--sans);font-size:1rem;outline:none;transition:border-color .4s}
-.f select option{background:var(--black)}
-.f textarea{min-height:80px;resize:vertical}
-.f label{position:absolute;left:0;top:14px;color:#888;pointer-events:none;transition:.35s var(--ease)}
-.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--red)}
-.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label{top:-8px;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red-2)}
+.rows{display:grid;gap:14px}
+.row{display:flex;gap:20px;padding:22px 24px;border-radius:22px;transition:transform .5s var(--ease),border-color .5s}
+.row:hover{transform:translateX(8px);border-color:rgba(225,29,37,.45)}
+.row .ic{width:46px;height:46px;border-radius:50%;background:rgba(225,29,37,.14);border:1px solid rgba(225,29,37,.35);display:grid;place-items:center;flex-shrink:0;color:var(--red-2)}
+.row .ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5}
+.row h4{font-size:.64rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red-2);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.hours{display:grid;grid-template-columns:auto auto;gap:3px 26px;font-size:.9rem;color:var(--muted)}
+.hours .today{color:#fff;font-weight:700}
+.st-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:20px;font-size:.58rem;letter-spacing:.14em;background:rgba(46,226,107,.12);color:#5cf08f}
+.st-badge.closed{background:rgba(225,29,37,.15);color:var(--red-2)}
+.st-badge .pulse{width:7px;height:7px}
+.form{border-radius:32px;padding:50px;position:relative;overflow:hidden}
+.form::before{content:"";position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(var(--glow),transparent 70%)}
+.form>*{position:relative}
+.form h3{font-size:2.3rem;margin-bottom:8px}
+.form>p{color:var(--muted);margin-bottom:30px;font-size:.92rem}
+.f{position:relative;margin-bottom:24px}
+.f input,.f select,.f textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:16px;color:#fff;padding:22px 18px 10px;font-family:var(--sans);font-size:1rem;outline:none;transition:border-color .4s,background .4s,box-shadow .4s}
+.f select{padding:18px}
+.f select option{background:#111}
+.f textarea{min-height:110px;resize:vertical}
+.f label{position:absolute;left:18px;top:17px;color:#888;pointer-events:none;transition:.35s var(--ease)}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--red);background:rgba(225,29,37,.05);box-shadow:0 0 0 4px rgba(225,29,37,.12)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label{top:7px;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red-2)}
 .form .btn{width:100%;justify-content:center}
-.map{height:240px;margin-top:30px;filter:grayscale(1) contrast(1.05);transition:filter .6s}
+.map{height:230px;margin-top:14px;border-radius:22px;overflow:hidden;border:1px solid var(--glass-b);filter:grayscale(1) invert(.9) contrast(.9);transition:filter .6s}
 .map:hover{filter:none}
 .map iframe{width:100%;height:100%;border:0}
 
-footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
-.big{font-family:var(--script);font-size:clamp(5rem,17vw,15rem);line-height:.9;color:#fff;text-align:center;opacity:.95}
-.big span{color:var(--red)}
-.f-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line-d);margin-top:50px;padding-top:26px;font-size:.82rem}
+footer{position:relative;padding:90px 0 34px;overflow:hidden;border-top:1px solid var(--glass-b)}
+footer .orb{width:700px;height:300px;left:50%;bottom:-200px;margin-left:-350px;background:var(--glow)}
+.bigname{position:relative;font-family:var(--script);font-size:clamp(5rem,18vw,16rem);line-height:.95;text-align:center;background:linear-gradient(90deg,#fff 20%,#8a8a8a 40%,#fff 60%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+.f-row{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1px solid var(--glass-b);margin-top:50px;padding-top:26px;font-size:.82rem;color:#777}
 .soc{display:flex;gap:10px}
-.soc a{width:42px;height:42px;border:1px solid var(--line-d);border-radius:50%;display:grid;place-items:center;color:#fff;transition:.4s var(--ease)}
-.soc a:hover{background:var(--red);border-color:var(--red)}
+.soc a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;transition:.45s var(--ease)}
+.soc a:hover{background:var(--red);border-color:var(--red);transform:translateY(-4px);box-shadow:0 10px 24px -6px var(--glow)}
 .soc svg{width:17px;height:17px;fill:currentColor}
 
-.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 34px -8px rgba(0,0,0,.5);transition:transform .5s var(--ease)}
-.wa:hover{transform:scale(1.08)}
+.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 34px -8px rgba(37,211,102,.6);transition:transform .5s var(--ease)}
+.wa:hover{transform:scale(1.1) rotate(-8deg)}
 .wa svg{width:28px;height:28px;fill:#fff}
 .wa::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid #25d366;animation:ring 2.4s infinite}
-@keyframes ring{to{transform:scale(1.5);opacity:0}}
+@keyframes ring{to{transform:scale(1.55);opacity:0}}
 
-.rv{opacity:0;transform:translateY(46px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+.rv{opacity:0;transform:translateY(50px);filter:blur(8px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 @media (max-width:1100px){
   .about,.c-grid,.sell{grid-template-columns:1fr;gap:60px}
   .sell{gap:0}
-  .sell-img{height:420px}
+  .sell-img{min-height:420px}
   .grid{grid-template-columns:repeat(2,1fr)}
-  .zones{grid-template-columns:repeat(3,1fr);height:auto}
-  .z{height:280px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .st:nth-child(2){border-right:none}
-  .st:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .bento{grid-template-columns:repeat(2,1fr)}
   .links,.nav-cta{display:none}
   .burger{display:block;z-index:51}
-  .links{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;background:var(--black);font-size:1rem;clip-path:circle(0 at calc(100% - 36px) 36px);transition:clip-path .8s var(--ease-io)}
-  .links.open{clip-path:circle(150% at calc(100% - 36px) 36px)}
-  .counter{display:none}
+  .links{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(7,7,7,.97);font-size:1.05rem;clip-path:circle(0 at calc(100% - 44px) 44px);transition:clip-path .8s var(--ease-io)}
+  .links.open{clip-path:circle(150% at calc(100% - 44px) 44px)}
+  .counter,.f-open{display:none}
+  .scard{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .scard-txt{padding:40px}
 }
 @media (max-width:760px){
-  .section{padding:90px 0}
-  .grid,.steps{grid-template-columns:1fr}
-  .track-line{display:none}
-  .zones{grid-template-columns:1fr 1fr}
-  .z{height:220px}
-  .z:first-child{grid-column:span 2}
-  .stack{height:440px}
-  .stack .stamp{width:100px;height:100px}
-  .stamp b{font-size:1.5rem}
-  .sell-txt{padding:60px 22px}
-  .form{padding:32px 22px}
+  .section{padding:96px 0}
+  .grid{grid-template-columns:1fr}
+  .bento{gap:12px}
+  .tile{padding:26px 20px}
+  .chips{grid-template-columns:1fr}
+  .stack{height:460px}
+  .stamp{width:104px;height:104px}
+  .stamp b{font-size:1.6rem}
+  .f-rate{right:16px;top:110px}
+  .f-rate .fcard{padding:12px 14px}
+  .f-rate b{font-size:1.3rem}
+  .avatars span{width:30px;height:30px}
   .hero-in{padding-bottom:70px}
-  .list li{flex-direction:column;align-items:flex-start;gap:4px}
-  .list li span{text-align:left}
-  .st{padding:34px 18px}
+  .scard{top:90px!important;height:auto;min-height:520px}
+  .scard-txt{padding:30px 24px;gap:20px}
+  .hs{height:auto!important}
+  .hs-sticky{position:relative;height:auto;padding:96px 0}
+  .hs-track{overflow-x:auto;scroll-snap-type:x mandatory;padding-right:16px;transform:none!important;scrollbar-width:none}
+  .hs-track::-webkit-scrollbar{display:none}
+  .zc{scroll-snap-align:start;flex-basis:78vw;height:420px}
+  .hs-bar{display:none}
+  .hs-head{flex-direction:column;align-items:flex-start}
+  .sell-txt{padding:50px 24px}
+  .form{padding:32px 22px}
+  .words{padding:120px 0}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition:none!important}
-  .rv,.fu,.ln>span{opacity:1;transform:none}
+  .rv,.fu,.ln>span{opacity:1;transform:none;filter:none}
   .cur::after{display:none}
+  .words p.big span{opacity:1}
 }
 </style>
 </head>
 <body>
 
-<div class="loader" aria-hidden="true"><div class="loader-in"><span class="R">R</span><span class="bar"></span><span class="sc">Ram House</span></div></div>
+<div class="progress" id="progress"></div>
+<div class="cur-dot" id="cdot"></div>
+<div class="cur-ring" id="cring"><span>VER</span></div>
+
+<div class="loader" aria-hidden="true"><div class="loader-in"><span class="R metal">R</span><span class="bar"></span><span class="sc">Ram House</span><span class="pct" id="pct">0%</span></div></div>
 
 <nav id="nav">
   <div class="container nav-in">
-    <a href="#inicio" class="brand" aria-label="RAM HOUSE inicio"><span class="R">R</span><span class="sep"></span><span class="nm"><span class="sc">Ram House</span><small>AGENCIA INMOBILIARIA</small></span></a>
+    <a href="#inicio" class="brand" aria-label="RAM HOUSE inicio"><span class="R metal">R</span><span class="sep"></span><span class="nm"><span class="sc">Ram House</span><small>AGENCIA INMOBILIARIA</small></span></a>
     <ul class="links" id="menu">
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#propiedades">Propiedades</a></li>
       <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#vender">Vender</a></li>
+      <li><a href="#zonas">Zonas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a href="https://wa.me/525555012579?text=Hola%20RAM%20HOUSE%2C%20me%20interesa%20una%20propiedad" target="_blank" rel="noopener" class="btn btn-red nav-cta">Agendar cita</a>
+    <a href="https://wa.me/525555012579?text=Hola%20RAM%20HOUSE%2C%20me%20interesa%20una%20propiedad" target="_blank" rel="noopener" class="btn btn-red nav-cta mag">Agendar cita</a>
     <button class="burger" id="burger" aria-label="Menú"><span></span><span></span></button>
   </div>
 </nav>
@@ -340,21 +420,32 @@ footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
   <div class="slide on fb" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2000&q=80')"></div>
   <div class="slide fb" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=80')"></div>
   <div class="slide fb" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=80')"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="ghost" data-depth="18">RAM</div>
+
+  <div class="float f-rate" data-depth="-30"><div class="fcard glass fu" style="animation-delay:2.9s">
+    <div class="avatars"><span>R</span><span>E</span><span>J</span></div>
+    <div><b>5.0 <span class="stars">★★★★★</span></b><small>131 reseñas en Google</small></div>
+  </div></div>
+  <div class="float f-open" data-depth="-50"><div class="fcard glass fu" style="animation-delay:3.05s"><span class="pulse" id="heroPulse"></span><span id="heroOpen">Abierto todos los días</span></div></div>
+
   <div class="container hero-in">
-    <span class="kicker fu" style="animation-delay:2s">Narvarte · Benito Juárez · CDMX</span>
+    <span class="kicker fu" style="animation-delay:2.2s">Narvarte · Benito Juárez · CDMX</span>
     <h1>
-      <span class="ln"><span style="animation-delay:2.05s">Espacios que</span></span>
-      <span class="ln"><span style="animation-delay:2.18s">definen <i>tu estilo</i><span class="red">.</span></span></span>
+      <span class="ln"><span style="animation-delay:2.25s">Espacios que</span></span>
+      <span class="ln"><span style="animation-delay:2.4s">definen <i>tu estilo</i><span class="red">.</span></span></span>
     </h1>
     <div class="hero-row">
-      <p class="lead fu" style="animation-delay:2.4s">Agencia inmobiliaria con 5.0 estrellas en Google. Compramos, vendemos y rentamos propiedades en las mejores colonias de la Ciudad de México, con atención todos los días.</p>
-      <div class="acts fu" style="animation-delay:2.55s">
-        <a href="#propiedades" class="btn btn-red">Explorar propiedades <span class="arr">→</span></a>
-        <a href="#vender" class="btn btn-ghost">Vende con nosotros</a>
+      <p class="lead fu" style="animation-delay:2.6s">Agencia inmobiliaria boutique con 5.0 estrellas en Google. Compramos, vendemos y rentamos propiedades en las mejores colonias de la Ciudad de México.</p>
+      <div class="acts fu" style="animation-delay:2.75s">
+        <a href="#propiedades" class="btn btn-red mag">Explorar propiedades <span class="arr">→</span></a>
+        <a href="#vender" class="btn btn-ghost mag">Vende con nosotros</a>
       </div>
     </div>
   </div>
-  <div class="counter"><b id="cur">01</b><i id="prog"></i><span>03</span></div>
+  <div class="counter"><b id="curN">01</b><i id="prog"></i><span>03</span></div>
 </header>
 
 <div class="mq" aria-hidden="true"><div class="mq-track">
@@ -362,31 +453,34 @@ footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
   <span>Compra</span><span>Venta</span><span>Renta</span><span>Inversión</span><span>Asesoría legal</span><span>Avalúos</span>
 </div></div>
 
-<section class="container stats">
-  <div class="st rv"><b data-count="5.0" data-dec="1">0</b><span>Calificación Google</span></div>
-  <div class="st rv d1"><b data-count="131">0</b><span>Reseñas de clientes</span></div>
-  <div class="st rv d2"><b data-count="7">0</b><span>Días a la semana</span></div>
-  <div class="st rv d3"><b data-count="100">0<sup>%</sup></b><span>Asesoría personalizada</span></div>
+<section class="section" style="padding-top:70px;padding-bottom:0">
+  <div class="container bento">
+    <div class="tile glass rv"><b data-count="5.0" data-dec="1">0</b><span>Calificación Google</span></div>
+    <div class="tile glass rv d1"><b data-count="131">0</b><span>Reseñas 5 estrellas</span></div>
+    <div class="tile glass rv d2"><b data-count="7">0</b><span>Días a la semana</span></div>
+    <div class="tile glass rv d3"><b data-count="100">0<sup>%</sup></b><span>Asesoría personalizada</span></div>
+  </div>
 </section>
 
 <section class="section" id="nosotros">
   <div class="container about">
-    <div class="stack rv">
+    <div class="stack rv" data-cursor>
+      <span class="glowline"></span>
       <div class="a cur fb"><img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1100&q=75" alt="Arquitectura en la Ciudad de México" loading="lazy" onerror="this.remove()"></div>
-      <div class="b cur fb" style="--d:.3s"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=75" alt="Interior de departamento" loading="lazy" onerror="this.remove()"></div>
+      <div class="b cur fb"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=75" alt="Interior de departamento" loading="lazy" onerror="this.remove()"></div>
       <div class="stamp"><svg viewBox="0 0 100 100"><defs><path id="c" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text font-size="8.4" fill="#fff" letter-spacing="2.6" font-family="Archivo"><textPath href="#c">5.0 ESTRELLAS · 131 RESEÑAS · </textPath></text></svg><b>R</b></div>
     </div>
     <div class="rv d1">
       <span class="kicker">Sobre RAM HOUSE</span>
-      <h2>Más que propiedades, <i>patrimonio</i>.</h2>
+      <h2>Más que propiedades, <i class="metal">patrimonio</i>.</h2>
       <p class="lead">Somos una agencia inmobiliaria boutique en Narvarte Poniente. Conocemos cada calle de Benito Juárez y acompañamos a nuestros clientes con honestidad, rapidez y un servicio que se refleja en 131 reseñas de cinco estrellas.</p>
-      <ul class="list">
-        <li><b>Compra</b><span>Encontramos el inmueble ideal para ti</span></li>
-        <li><b>Venta</b><span>Tu propiedad al mejor precio de mercado</span></li>
-        <li><b>Renta</b><span>Departamentos y casas con contratos claros</span></li>
-        <li><b>Asesoría</b><span>Legal, crédito y avalúos en un solo lugar</span></li>
-      </ul>
-      <a href="#contacto" class="btn btn-black">Conócenos <span class="arr">→</span></a>
+      <div class="chips">
+        <div class="chip glass"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg><b>Compra</b><span>El inmueble ideal para ti</span></div>
+        <div class="chip glass"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><b>Venta</b><span>Al mejor precio de mercado</span></div>
+        <div class="chip glass"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M14 9l2 2"/></svg><b>Renta</b><span>Contratos claros y ágiles</span></div>
+        <div class="chip glass"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><b>Asesoría</b><span>Legal, crédito y avalúos</span></div>
+      </div>
+      <a href="#contacto" class="btn btn-red mag">Conócenos <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -394,37 +488,43 @@ footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
 <section class="section props" id="propiedades">
   <div class="container">
     <div class="top">
-      <div class="rv"><span class="kicker">Portafolio</span><h2>Propiedades <i>selectas</i></h2></div>
-      <div class="tabs rv d1">
+      <div class="rv"><span class="kicker">Portafolio</span><h2>Propiedades <i class="metal">selectas</i></h2></div>
+      <div class="tabs glass rv d1">
         <button class="tab on" data-f="all">Todas</button>
         <button class="tab" data-f="venta">Venta</button>
         <button class="tab" data-f="renta">Renta</button>
       </div>
     </div>
     <div class="grid">
-      <a href="#contacto" class="p rv" data-t="venta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=75" alt="Departamento en Narvarte" loading="lazy" onerror="this.remove()"><span class="p-tag">Venta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Narvarte Poniente</small><h3>Departamento de estreno</h3><div class="sp">2 rec · 2 baños · 85 m² · 1 cajón</div></div><div class="p-price">$4.2M<small>MXN</small></div></div>
+      <a href="#contacto" class="p rv" data-t="venta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=75" alt="Departamento en Narvarte" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag">Venta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Narvarte Poniente</small><h3>Departamento de estreno</h3><div class="p-bot"><span class="sp">2 rec · 2 baños · 85 m²</span><span class="p-price">$4.2M <small>MXN</small></span></div></div>
       </a>
-      <a href="#contacto" class="p rv d1" data-t="venta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=900&q=75" alt="Penthouse en Del Valle" loading="lazy" onerror="this.remove()"><span class="p-tag">Venta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Del Valle Centro</small><h3>Penthouse con roof garden</h3><div class="sp">3 rec · 2.5 baños · 160 m²</div></div><div class="p-price">$8.9M<small>MXN</small></div></div>
+      <a href="#contacto" class="p rv d1" data-t="venta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=900&q=75" alt="Penthouse en Del Valle" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag">Venta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Del Valle Centro</small><h3>Penthouse con roof garden</h3><div class="p-bot"><span class="sp">3 rec · 2.5 baños · 160 m²</span><span class="p-price">$8.9M <small>MXN</small></span></div></div>
       </a>
-      <a href="#contacto" class="p rv d2" data-t="renta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=75" alt="Departamento en renta en Narvarte" loading="lazy" onerror="this.remove()"><span class="p-tag w">Renta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Narvarte Oriente</small><h3>Departamento iluminado</h3><div class="sp">2 rec · 1 baño · 70 m²</div></div><div class="p-price">$19,500<small>/ MES</small></div></div>
+      <a href="#contacto" class="p rv d2" data-t="renta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=75" alt="Departamento en renta en Narvarte" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag w">Renta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Narvarte Oriente</small><h3>Departamento iluminado</h3><div class="p-bot"><span class="sp">2 rec · 1 baño · 70 m²</span><span class="p-price">$19,500 <small>/MES</small></span></div></div>
       </a>
-      <a href="#contacto" class="p rv" data-t="renta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=900&q=75" alt="Loft en Nápoles" loading="lazy" onerror="this.remove()"><span class="p-tag w">Renta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Col. Nápoles</small><h3>Loft amueblado cerca del WTC</h3><div class="sp">1 rec · 1 baño · 55 m²</div></div><div class="p-price">$17,000<small>/ MES</small></div></div>
+      <a href="#contacto" class="p rv" data-t="renta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=900&q=75" alt="Loft en Nápoles" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag w">Renta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Col. Nápoles</small><h3>Loft amueblado cerca del WTC</h3><div class="p-bot"><span class="sp">1 rec · 1 baño · 55 m²</span><span class="p-price">$17,000 <small>/MES</small></span></div></div>
       </a>
-      <a href="#contacto" class="p rv d1" data-t="venta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=75" alt="Casa en Portales" loading="lazy" onerror="this.remove()"><span class="p-tag">Venta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Portales Norte</small><h3>Casa remodelada</h3><div class="sp">3 rec · 3 baños · 190 m² · 2 cajones</div></div><div class="p-price">$7.4M<small>MXN</small></div></div>
+      <a href="#contacto" class="p rv d1" data-t="venta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=900&q=75" alt="Casa en Portales" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag">Venta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Portales Norte</small><h3>Casa remodelada</h3><div class="p-bot"><span class="sp">3 rec · 3 baños · 190 m²</span><span class="p-price">$7.4M <small>MXN</small></span></div></div>
       </a>
-      <a href="#contacto" class="p rv d2" data-t="renta">
-        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=75" alt="Departamento familiar en Del Valle" loading="lazy" onerror="this.remove()"><span class="p-tag w">Renta</span><span class="p-more">→</span></div>
-        <div class="p-info"><div><small>Del Valle Sur</small><h3>Departamento familiar</h3><div class="sp">3 rec · 2 baños · 120 m²</div></div><div class="p-price">$28,000<small>/ MES</small></div></div>
+      <a href="#contacto" class="p rv d2" data-t="renta" data-cursor>
+        <div class="p-img fb"><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=75" alt="Departamento familiar en Del Valle" loading="lazy" onerror="this.remove()"></div>
+        <span class="p-tag w">Renta</span><span class="glare"></span>
+        <div class="p-info glass"><small>Del Valle Sur</small><h3>Departamento familiar</h3><div class="p-bot"><span class="sp">3 rec · 2 baños · 120 m²</span><span class="p-price">$28,000 <small>/MES</small></span></div></div>
       </a>
     </div>
     <p class="note rv">Precios de referencia sujetos a disponibilidad · Pregunta por el inventario completo.</p>
@@ -433,97 +533,110 @@ footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
 
 <section class="section" id="proceso">
   <div class="container">
-    <div class="rv" style="max-width:640px"><span class="kicker">Cómo trabajamos</span><h2 style="margin-top:18px">Un proceso <i>claro</i>, de principio a fin.</h2></div>
-    <div class="steps rv" id="steps">
-      <div class="track-line"><i></i></div>
-      <div class="step"><div class="dot">01</div><h3>Escuchamos</h3><p>Entendemos lo que buscas: zona, presupuesto, estilo de vida.</p></div>
-      <div class="step"><div class="dot">02</div><h3>Seleccionamos</h3><p>Te presentamos solo opciones que realmente cumplen contigo.</p></div>
-      <div class="step"><div class="dot">03</div><h3>Negociamos</h3><p>Defendemos tus intereses para lograr el mejor acuerdo.</p></div>
-      <div class="step"><div class="dot">04</div><h3>Cerramos</h3><p>Revisión legal, crédito y firma. Tú solo recibes las llaves.</p></div>
+    <div class="process-head rv"><span class="kicker">Cómo trabajamos</span><h2 style="margin-top:18px">Un proceso <i class="metal">impecable</i>, de principio a fin.</h2></div>
+    <div class="cards" id="cards">
+      <div class="scard"><div class="scard-txt"><span class="num">01</span><div><h3>Escuchamos</h3><p>Entendemos lo que buscas: colonia, presupuesto, metros, estilo de vida. Nada de visitas que no valen la pena.</p></div></div><div class="scard-img fb"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1000&q=75" alt="" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="scard"><div class="scard-txt"><span class="num">02</span><div><h3>Seleccionamos</h3><p>Filtramos el mercado y te presentamos solo propiedades que realmente cumplen contigo, con recorridos organizados.</p></div></div><div class="scard-img fb"><img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1000&q=75" alt="" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="scard"><div class="scard-txt"><span class="num">03</span><div><h3>Negociamos</h3><p>Defendemos tus intereses para lograr el mejor precio y las mejores condiciones.</p></div></div><div class="scard-img fb"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=75" alt="" loading="lazy" onerror="this.remove()"></div></div>
+      <div class="scard"><div class="scard-txt"><span class="num" style="-webkit-text-stroke-color:rgba(255,65,72,.7)">04</span><div><h3>Te entregamos las llaves</h3><p>Revisión legal, crédito y firma ante notario. Tú solo te preocupas por mudarte.</p></div></div><div class="scard-img fb"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=75" alt="" loading="lazy" onerror="this.remove()"></div></div>
     </div>
   </div>
 </section>
 
-<section class="band">
-  <div class="band-bg fb" id="px" style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2000&q=80')"></div>
-  <div class="container rv">
-    <blockquote>“Tu hogar no es un lugar, es <em>donde empieza</em> todo lo demás.”</blockquote>
-    <p>RAM HOUSE · Agencia Inmobiliaria</p>
-  </div>
-</section>
-
-<section class="section">
+<section class="words" id="words">
+  <div class="words-bg fb" id="px" style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=2000&q=80')"></div>
   <div class="container">
-    <div class="rv" style="text-align:center;max-width:700px;margin:0 auto"><span class="kicker">Nuestras zonas</span><h2 style="margin-top:18px">Lo mejor de <i>Benito Juárez</i></h2></div>
-    <div class="zones">
-      <a href="#contacto" class="z rv fb"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=70" alt="Narvarte" loading="lazy" onerror="this.remove()"><div class="z-t"><small>Nuestra casa</small><h3>Narvarte</h3></div></a>
-      <a href="#contacto" class="z rv d1 fb"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=70" alt="Del Valle" loading="lazy" onerror="this.remove()"><div class="z-t"><small>Residencial</small><h3>Del Valle</h3></div></a>
-      <a href="#contacto" class="z rv d2 fb"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=70" alt="Nápoles" loading="lazy" onerror="this.remove()"><div class="z-t"><small>Moderna</small><h3>Nápoles</h3></div></a>
-      <a href="#contacto" class="z rv d3 fb"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=70" alt="Portales" loading="lazy" onerror="this.remove()"><div class="z-t"><small>Tradicional</small><h3>Portales</h3></div></a>
-      <a href="#contacto" class="z rv d4 fb"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=70" alt="Álamos" loading="lazy" onerror="this.remove()"><div class="z-t"><small>Céntrica</small><h3>Álamos</h3></div></a>
+    <p class="big" id="bigtext">Tu hogar no es solo un lugar. Es donde empieza *todo* lo demás, y merece a alguien que lo *encuentre* contigo.</p>
+    <small>— RAM HOUSE · Agencia Inmobiliaria</small>
+  </div>
+</section>
+
+<section class="hs" id="zonas">
+  <div class="hs-sticky">
+    <div class="container hs-head">
+      <div><span class="kicker">Nuestras zonas</span><h2 style="margin-top:18px">Lo mejor de <i class="metal">Benito Juárez</i></h2></div>
+      <p class="lead" style="max-width:360px">Desliza y descubre las colonias donde encontramos las mejores oportunidades.</p>
+    </div>
+    <div class="hs-track" id="track">
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">01</span><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=70" alt="Narvarte" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Nuestra casa</small><h3>Narvarte</h3></div><span class="glass">→</span></div></a>
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">02</span><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=70" alt="Del Valle" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Residencial</small><h3>Del Valle</h3></div><span class="glass">→</span></div></a>
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">03</span><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=70" alt="Nápoles" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Moderna</small><h3>Nápoles</h3></div><span class="glass">→</span></div></a>
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">04</span><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=900&q=70" alt="Portales" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Tradicional</small><h3>Portales</h3></div><span class="glass">→</span></div></a>
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">05</span><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=900&q=70" alt="Álamos" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Céntrica</small><h3>Álamos</h3></div><span class="glass">→</span></div></a>
+      <a href="#contacto" class="zc fb" data-cursor><span class="idx">06</span><img src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=900&q=70" alt="Letrán Valle" loading="lazy" onerror="this.remove()"><div class="zc-t"><div><small>Tranquila</small><h3>Letrán Valle</h3></div><span class="glass">→</span></div></a>
+    </div>
+    <div class="container"><div class="hs-bar"><i id="hsbar"></i></div></div>
+  </div>
+</section>
+
+<section class="section" id="vender">
+  <div class="container">
+    <div class="sell rv">
+      <div class="sell-img cur fb" data-cursor><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=75" alt="Interior de lujo" loading="lazy" onerror="this.remove()"><div class="badge glass"><b>0$</b><span style="font-size:.8rem;color:#ccc">Opinión de valor<br>sin costo</span></div></div>
+      <div class="sell-txt">
+        <div class="orb"></div>
+        <span class="kicker">Vende o renta tu propiedad</span>
+        <h2>Tu inmueble merece <i class="metal">otro nivel</i>.</h2>
+        <p class="lead">Nos encargamos de todo para que vendas o rentes rápido y al mejor precio.</p>
+        <ul class="checks">
+          <li class="glass"><i>✓</i>Opinión de valor sin costo</li>
+          <li class="glass"><i>✓</i>Fotografía y video profesional</li>
+          <li class="glass"><i>✓</i>Difusión en portales y redes sociales</li>
+          <li class="glass"><i>✓</i>Filtro de clientes y acompañamiento legal</li>
+        </ul>
+        <div><a href="https://wa.me/525555012579?text=Hola%20RAM%20HOUSE%2C%20quiero%20vender%20o%20rentar%20mi%20propiedad" target="_blank" rel="noopener" class="btn btn-red mag">Solicitar valuación <span class="arr">→</span></a></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sell" id="vender">
-  <div class="sell-img cur fb rv"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=75" alt="Interior de lujo" loading="lazy" onerror="this.remove()"></div>
-  <div class="sell-txt rv d1">
-    <span class="kicker">Vende o renta tu propiedad</span>
-    <h2>Tu inmueble merece <i>otro nivel</i>.</h2>
-    <p class="lead">Nos encargamos de todo para que vendas o rentes rápido y al mejor precio.</p>
-    <ul>
-      <li>Opinión de valor sin costo</li>
-      <li>Fotografía y video profesional</li>
-      <li>Difusión en portales y redes sociales</li>
-      <li>Filtro de clientes y acompañamiento legal</li>
-    </ul>
-    <div><a href="https://wa.me/525555012579?text=Hola%20RAM%20HOUSE%2C%20quiero%20vender%20o%20rentar%20mi%20propiedad" target="_blank" rel="noopener" class="btn btn-red">Solicitar valuación <span class="arr">→</span></a></div>
-  </div>
-</section>
-
-<section class="section" id="contacto">
+<section class="section contact" id="contacto">
+  <div class="orb o1"></div><div class="orb o2"></div>
   <div class="container c-grid">
     <div class="rv">
       <span class="kicker">Contacto</span>
-      <h2>Hablemos de tu <i>próximo hogar</i>.</h2>
-      <a class="row" href="https://maps.google.com/?q=Cumbres+de+Maltrata+617+Narvarte+Poniente+CDMX" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h4>Oficina</h4><p>Cumbres de Maltrata 617, Narvarte Poniente, Benito Juárez, 03620 CDMX</p></div></a>
-      <a class="row" href="tel:+525555012579"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg></span><div><h4>Teléfono y WhatsApp</h4><p>55 5501 2579</p></div></a>
-      <div class="row"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h4>Horario <span class="open" id="openNow" hidden>Abierto ahora</span></h4>
-        <div class="hours" id="hours">
-          <span data-d="1">Lunes</span><span data-d="1">9:30 – 19:00</span>
-          <span data-d="2">Martes</span><span data-d="2">9:30 – 19:00</span>
-          <span data-d="3">Miércoles</span><span data-d="3">9:30 – 19:00</span>
-          <span data-d="4">Jueves</span><span data-d="4">9:30 – 19:00</span>
-          <span data-d="5">Viernes</span><span data-d="5">9:30 – 19:00</span>
-          <span data-d="6">Sábado</span><span data-d="6">10:00 – 15:00</span>
-          <span data-d="0">Domingo</span><span data-d="0">10:00 – 15:00</span>
-        </div>
-      </div></div>
+      <h2>Hablemos de tu <i class="metal">próximo hogar</i>.</h2>
+      <div class="rows">
+        <a class="row glass" href="https://maps.google.com/?q=Cumbres+de+Maltrata+617+Narvarte+Poniente+CDMX" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><h4>Oficina</h4><p>Cumbres de Maltrata 617, Narvarte Poniente, Benito Juárez, 03620 CDMX</p></div></a>
+        <a class="row glass" href="tel:+525555012579"><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg></span><div><h4>Teléfono y WhatsApp</h4><p>55 5501 2579</p></div></a>
+        <div class="row glass"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h4>Horario <span class="st-badge" id="badge"><span class="pulse"></span><span id="badgeTxt"></span></span></h4>
+          <div class="hours" id="hours">
+            <span data-d="1">Lunes</span><span data-d="1">9:30 – 19:00</span>
+            <span data-d="2">Martes</span><span data-d="2">9:30 – 19:00</span>
+            <span data-d="3">Miércoles</span><span data-d="3">9:30 – 19:00</span>
+            <span data-d="4">Jueves</span><span data-d="4">9:30 – 19:00</span>
+            <span data-d="5">Viernes</span><span data-d="5">9:30 – 19:00</span>
+            <span data-d="6">Sábado</span><span data-d="6">10:00 – 15:00</span>
+            <span data-d="0">Domingo</span><span data-d="0">10:00 – 15:00</span>
+          </div>
+        </div></div>
+      </div>
       <div class="map"><iframe src="https://maps.google.com/maps?q=Cumbres%20de%20Maltrata%20617%2C%20Narvarte%20Poniente%2C%20CDMX&z=16&output=embed" loading="lazy" title="Ubicación RAM HOUSE"></iframe></div>
     </div>
     <div class="rv d1">
-      <form class="form" id="form">
+      <form class="form glass" id="form">
         <h3>Agenda una cita</h3>
         <p>Te respondemos por WhatsApp en minutos.</p>
         <div class="f"><input id="n" placeholder=" " required><label for="n">Nombre</label></div>
         <div class="f"><input id="t" type="tel" placeholder=" " required><label for="t">Teléfono</label></div>
         <div class="f"><select id="i" aria-label="Interés"><option>Quiero comprar</option><option>Quiero rentar</option><option>Quiero vender</option><option>Quiero poner en renta</option></select></div>
         <div class="f"><textarea id="m" placeholder=" "></textarea><label for="m">Colonia, presupuesto, recámaras…</label></div>
-        <button class="btn btn-red" type="submit">Enviar por WhatsApp <span class="arr">→</span></button>
+        <button class="btn btn-red mag" type="submit">Enviar por WhatsApp <span class="arr">→</span></button>
       </form>
     </div>
   </div>
 </section>
 
 <footer>
+  <div class="orb"></div>
   <div class="container">
-    <div class="big rv">Ram House<span>.</span></div>
+    <div class="bigname rv">Ram House</div>
     <div class="f-row">
       <span>© <span id="y"></span> RAM HOUSE Agencia Inmobiliaria · Narvarte Poniente, CDMX</span>
       <div class="soc">
-        <a href="https://wa.me/525555012579" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg></a>
-        <a href="tel:+525555012579" aria-label="Llamar"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
-        <a href="https://maps.google.com/?q=RAM+HOUSE+Agencia+Inmobiliaria+Narvarte" target="_blank" rel="noopener" aria-label="Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></a>
+        <a class="glass" href="https://wa.me/525555012579" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.3Z"/></svg></a>
+        <a class="glass" href="tel:+525555012579" aria-label="Llamar"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+        <a class="glass" href="https://maps.google.com/?q=RAM+HOUSE+Agencia+Inmobiliaria+Narvarte" target="_blank" rel="noopener" aria-label="Google Maps"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></a>
       </div>
     </div>
   </div>
@@ -534,35 +647,28 @@ footer{background:var(--black);color:#777;padding:80px 0 34px;overflow:hidden}
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(pointer: fine)').matches;
+const clamp=(v,a,b)=>Math.min(Math.max(v,a),b);
 
-const nav=$('#nav'),px=$('#px');
-function onScroll(){
-  nav.classList.toggle('scrolled',scrollY>40);
-  if(!reduce){const r=px.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)px.style.transform=`translateY(${(r.top-innerHeight/2)*-0.16}px)`}
-}
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+(function(){let p=0;const el=$('#pct'),t=setInterval(()=>{p=Math.min(100,p+Math.ceil(Math.random()*9));el.textContent=p+'%';if(p>=100)clearInterval(t)},70)})();
 
 const burger=$('#burger'),menu=$('#menu');
 burger.onclick=()=>{burger.classList.toggle('open');menu.classList.toggle('open')};
 menu.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open');menu.classList.remove('open')});
 
 const slides=$$('.slide'),prog=$('#prog');let si=0;
-function next(){
-  slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on');
-  $('#cur').textContent='0'+(si+1);prog.classList.remove('run');void prog.offsetWidth;prog.classList.add('run');
-}
-prog.classList.add('run');setInterval(next,6000);
+prog.classList.add('run');
+setInterval(()=>{slides[si].classList.remove('on');si=(si+1)%slides.length;slides[si].classList.add('on');$('#curN').textContent='0'+(si+1);prog.classList.remove('run');void prog.offsetWidth;prog.classList.add('run')},6000);
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;
   e.target.classList.add('in');
   e.target.querySelectorAll('[data-count]').forEach(countUp);
-  if(e.target.dataset.count)countUp(e.target);
   io.unobserve(e.target);
 }),{threshold:.15});
 $$('.rv').forEach(el=>io.observe(el));
 function countUp(el){
-  const end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),sup=el.querySelector('sup'),t0=performance.now();
+  const end=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),t0=performance.now();
   (function tick(t){const p=Math.min((t-t0)/1800,1);el.firstChild.nodeValue=(end*(1-Math.pow(1-p,4))).toFixed(dec);if(p<1)requestAnimationFrame(tick)})(t0);
 }
 
@@ -571,10 +677,77 @@ $$('.tab').forEach(b=>b.onclick=()=>{
   $$('.p').forEach(p=>{p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.t!==b.dataset.f);p.classList.add('in')});
 });
 
-const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+const bt=$('#bigtext');
+bt.innerHTML=bt.textContent.split(' ').map(w=>{const hot=/^\*.*\*[.,]?$/.test(w);return `<span${hot?' class="hot"':''}>${w.replace(/\*/g,'')}</span>`}).join(' ');
+const wordSpans=[...bt.children];
+
+const nav=$('#nav'),progress=$('#progress'),px=$('#px'),words=$('#words');
+const hs=$('#zonas'),track=$('#track'),hsbar=$('#hsbar'),cards=$$('.scard');
+const mobile=()=>innerWidth<=760;
+function sizeHS(){if(mobile()){hs.style.height='';return}hs.style.height=(track.scrollWidth-innerWidth+innerHeight+120)+'px'}
+function onScroll(){
+  const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  nav.classList.toggle('scrolled',y>40);
+  progress.style.transform=`scaleX(${y/h})`;
+  const wr=words.getBoundingClientRect();
+  if(!reduce&&wr.bottom>0&&wr.top<innerHeight)px.style.transform=`translateY(${(wr.top-innerHeight/2)*-0.15}px)`;
+  const wp=clamp((innerHeight*.85-wr.top)/(wr.height*.75),0,1),lit=Math.floor(wp*wordSpans.length);
+  wordSpans.forEach((s,i)=>s.classList.toggle('lit',reduce||i<lit));
+  if(!mobile()){
+    const r=hs.getBoundingClientRect(),p=clamp(-r.top/(r.height-innerHeight),0,1);
+    track.style.transform=`translateX(${-p*(track.scrollWidth-innerWidth+80)}px)`;
+    hsbar.style.transform=`scaleX(${p})`;
+  }
+  if(!reduce)cards.forEach((c,i)=>{
+    const next=cards[i+1];if(!next){c.style.transform='';return}
+    const nr=next.getBoundingClientRect(),cr=c.getBoundingClientRect();
+    const o=clamp(1-(nr.top-cr.top)/cr.height,0,1);
+    c.style.transform=`scale(${1-o*.07})`;c.style.filter=`brightness(${1-o*.45})`;
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',()=>{sizeHS();onScroll()});
+addEventListener('load',()=>{sizeHS();onScroll()});
+sizeHS();onScroll();
+
+if(fine&&!reduce){
+  document.body.classList.add('has-cursor');
+  const dot=$('#cdot'),ring=$('#cring');let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('mousemove',e=>{document.body.classList.add('moved');mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px)`});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop)})();
+  $$('[data-cursor]').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('big'));el.addEventListener('mouseleave',()=>ring.classList.remove('big'))});
+  $$('a:not([data-cursor]),button').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('link'));el.addEventListener('mouseleave',()=>ring.classList.remove('link'))});
+
+  const hero=$('.hero'),layers=$$('[data-depth]');
+  hero.addEventListener('mousemove',e=>{
+    const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+    layers.forEach(l=>{const d=+l.dataset.depth;const base=l.classList.contains('ghost')?'translate(-50%,-50%) ':'';l.style.transform=`${base}translate(${x*d}px,${y*d}px)`});
+  });
+
+  $$('.p').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      card.style.transition='transform .15s ease-out,box-shadow .7s';
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      card.style.transform=`perspective(1000px) rotateY(${(x-.5)*14}deg) rotateX(${(.5-y)*14}deg)`;
+      card.style.setProperty('--gx',x*100+'%');card.style.setProperty('--gy',y*100+'%');
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transition='transform .9s cubic-bezier(.22,1,.36,1),box-shadow .7s';card.style.transform=''});
+  });
+
+  $$('.mag').forEach(b=>{
+    b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});
+    b.addEventListener('mouseleave',()=>b.style.transform='');
+  });
+}
+
+const now=new Date(),d=now.getDay(),hr=now.getHours()+now.getMinutes()/60;
 $$('#hours [data-d="'+d+'"]').forEach(s=>s.classList.add('today'));
-const [o,c]=(d===0||d===6)?[10,15]:[9.5,19];
-if(h>=o&&h<c)$('#openNow').hidden=false;
+const [o,c]=(d===0||d===6)?[10,15]:[9.5,19],isOpen=hr>=o&&hr<c;
+$('#badgeTxt').textContent=isOpen?'ABIERTO AHORA':'CERRADO AHORA';
+$('#badge').classList.toggle('closed',!isOpen);
+$('#badge .pulse').classList.toggle('off',!isOpen);
+$('#heroOpen').textContent=isOpen?'Abierto ahora · atendemos hoy':'Abrimos todos los días';
+$('#heroPulse').classList.toggle('off',!isOpen);
 
 $('#form').onsubmit=e=>{
   e.preventDefault();
